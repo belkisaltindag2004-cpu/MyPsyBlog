@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Psychology Writings</title>
+    <style>
+        /* Smooth Scrolling added here */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+            background: #fafafa;
+            min-height: 100vh;
+            color: #1a1a1a;
+            line-height: 1.6;
+        }
+
+        header {
+            background: linear-gradient(135deg, #ff6b9d 0%, #c44569 100%);
+            padding: 1.2rem 0;
+            border-bottom: none;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            animation: slideDown 0.5s ease;
+            box-shadow: 0 2px 10px rgba(255, 107, 157, 0.2);
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        nav {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: white;
+            letter-spacing: -0.3px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 0.95rem;
+            font-weight: 400;
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        .nav-links a:hover {
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 2px;
+            background: white;
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .hero {
+            max-width: 1100px;
+            margin: 4rem auto 3rem;
+            padding: 0 2rem;
+        }
+
+        .hero h1 {
+            font-size: 2.2rem;
+            color: #1a1a1a;
+            margin-bottom: 0.8rem;
+            font-weight: 500;
+            letter-spacing: -0.5px;
+        }
+
+        .hero p {
+            font-size: 1.05rem;
+            color: #666;
+            font-weight: 400;
+        }
+
+        .blog-container {
+            max-width: 1100px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .blog-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid #e5e5e5;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            position: relative;
+        }
+
+        .blog-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(255, 107, 157, 0.05) 0%, rgba(196, 69, 105, 0.05) 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 1;
+        }
+
+        .blog-card:hover::before {
+            opacity: 1;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 12px 30px rgba(255, 107, 157, 0.15);
+            border-color: #ff6b9d;
+        }
+
+        .blog-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e9ecef 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            border-bottom: 1px solid #e5e5e5;
+        }
+
+        .blog-content {
+            padding: 1.5rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .blog-category {
+            display: inline-block;
+            color: #666;
+            padding: 0;
+            font-size: 0.8rem;
+            margin-bottom: 0.8rem;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .blog-title {
+            font-size: 1.25rem;
+            margin-bottom: 0.7rem;
+            color: #1a1a1a;
+            font-weight: 500;
+            letter-spacing: -0.3px;
+            line-height: 1.4;
+        }
+
+        .blog-excerpt {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+            font-weight: 400;
+        }
+
+        .blog-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #999;
+            font-size: 0.85rem;
+            padding-top: 1rem;
+            border-top: 1px solid #f0f0f0;
+        }
+
+        .read-more {
+            color: #ff6b9d;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+        }
+
+        .read-more:hover {
+            gap: 0.5rem;
+            color: #c44569;
+            transform: translateX(4px);
+        }
+
+        .read-more::after {
+            content: '→';
+            margin-left: 0.3rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .read-more:hover::after {
+            margin-left: 0.6rem;
+            transform: translateX(4px);
+        }
+
+        footer {
+            background: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+            color: #999;
+            border-top: 1px solid #e5e5e5;
+            font-size: 0.9rem;
+        }
+
+        footer p {
+            margin-bottom: 0.5rem;
+        }
+
+        #ana-sayfa, #yazilar, #hakkimda, #iletisim {
+            scroll-margin-top: 80px;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .blog-container {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .nav-links {
+                gap: 1.2rem;
+                font-size: 0.9rem;
+            }
+
+            nav {
+                padding: 0 1.5rem;
+            }
+
+            .hero, .blog-container {
+                padding: 0 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Psychology</div>
+            <ul class="nav-links">
+                <li><a href="#ana-sayfa">Home</a></li>
+                <li><a href="#yazilar">Articles</a></li>
+                <li><a href="#hakkimda">About</a></li>
+                <li><a href="#iletisim">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="hero" id="ana-sayfa">
+        <h1>Journey into the Depths of Psychology</h1>
+        <p>Find meaning in daily life while exploring the mysteries of the human mind</p>
+    </div>
+
+    <div class="blog-container" id="yazilar">
+        <!-- Yeni Eklenen Yeme Bozuklukları Makalesi -->
+        <article class="blog-card" onclick="openArticle('yeme-bozukluklari')">
+            <div class="blog-image">🍲</div>
+            <div class="blog-content">
+                <span class="blog-category">Eating Disorders</span>
+                <h2 class="blog-title">Yeme Davranışlarının Psikolojik Boyutu: Yemekten Daha Fazlası</h2>
+                <p class="blog-excerpt">Yemek yemek hayati bir ihtiyaçtır ancak çoğu zaman yalnızca açlığımızı gidermekten ibaret değildir. Yeme bozukluklarının psikolojik boyutlarını inceliyoruz.</p>
+                <div class="blog-meta">
+                    <span>Jun 24, 2026</span>
+                    <span>8 min read</span>
+                </div>
+                <a href="#yeme-bozukluklari" class="read-more" onclick="event.stopPropagation(); openArticle('yeme-bozukluklari')">Read More</a>
+            </div>
+        </article>
+
+        <article class="blog-card" onclick="openArticle('mindfulness')">
+            <div class="blog-image">🧘‍♀️</div>
+            <div class="blog-content">
+                <span class="blog-category">Mindfulness</span>
+                <h2 class="blog-title">Mindfulness: The Art of Living in the Now</h2>
+                <p class="blog-excerpt">Mindfulness is a powerful way to step away from the stress of modern life and focus on the present. We will explore its scientific foundations.</p>
+                <div class="blog-meta">
+                    <span>Jan 15, 2026</span>
+                    <span>5 min read</span>
+                </div>
+                <a href="#mindfulness" class="read-more" onclick="event.stopPropagation(); openArticle('mindfulness')">Read More</a>
+            </div>
+        </article>
+
+        <article class="blog-card" onclick="openArticle('bilissel')">
+            <div class="blog-image">💭</div>
+            <div class="blog-content">
+                <span class="blog-category">Cognitive Psychology</span>
+                <h2 class="blog-title">Cognitive Distortions and Thought Patterns</h2>
+                <p class="blog-excerpt">Our minds sometimes play games with us. Cognitive distortions are errors in thinking. Let's examine common patterns and how to handle them.</p>
+                <div class="blog-meta">
+                    <span>Jan 12, 2026</span>
+                    <span>7 min read</span>
+                </div>
+                <a href="#bilissel" class="read-more" onclick="event.stopPropagation(); openArticle('bilissel')">Read More</a>
+            </div>
+        </article>
+
+        <article class="blog-card" onclick="openArticle('gelisim')">
+            <div class="blog-image">🌱</div>
+            <div class="blog-content">
+                <span class="blog-category">Developmental Psychology</span>
+                <h2 class="blog-title">Personal Growth: Discover Your Potential</h2>
+                <p class="blog-excerpt">There is a huge potential waiting to be discovered inside each of us. Start your journey of self-actualization based on Maslow's hierarchy.</p>
+                <div class="blog-meta">
+                    <span>Jan 8, 2026</span>
+                    <span>6 min read</span>
+                </div>
+                <a href="#gelisim" class="read-more" onclick="event.stopPropagation(); openArticle('gelisim')">Read More</a>
+            </div>
+        </article>
+
+        <article class="blog-card" onclick="openArticle('baglanma')">
+            <div class="blog-image">❤️</div>
+            <div class="blog-content">
+                <span class="blog-category">Relationships</span>
+                <h2 class="blog-title">Attachment Styles and Relationships</h2>
+                <p class="blog-excerpt">How do attachment styles developed in childhood affect adult relationships? Understanding these styles is key to healthier connections.</p>
+                <div class="blog-meta">
+                    <span>Jan 5, 2026</span>
+                    <span>8 min read</span>
+                </div>
+                <a href="#baglanma" class="read-more" onclick="event.stopPropagation(); openArticle('baglanma')">Read More</a>
+            </div>
+        </article>
+
+        <article class="blog-card" onclick="openArticle('motivasyon')">
+            <div class="blog-image">🎯</div>
+            <div class="blog-content">
+                <span class="blog-category">Motivation</span>
+                <h2 class="blog-title">Psychology of Motivation: Secrets of Action</h2>
+                <p class="blog-excerpt">What is the difference between intrinsic and extrinsic motivation? Learn how to boost your drive to reach your personal goals.</p>
+                <div class="blog-meta">
+                    <span>Jan 2, 2026</span>
+                    <span>6 min read</span>
+                </div>
+                <a href="#motivasyon" class="read-more" onclick="event.stopPropagation(); openArticle('motivasyon')">Read More</a>
+            </div>
+        </article>
+
+        <article class="blog-card" onclick="openArticle('duygu')">
+            <div class="blog-image">😌</div>
+            <div class="blog-content">
+                <span class="blog-category">Emotional Health</span>
+                <h2 class="blog-title">Emotion Regulation Skills</h2>
+                <p class="blog-excerpt">Managing emotions healthily instead of suppressing them is critical for mental health. Explore regulation techniques for daily life.</p>
+                <div class="blog-meta">
+                    <span>Dec 30, 2025</span>
+                    <span>7 min read</span>
+                </div>
+                <a href="#duygu" class="read-more" onclick="event.stopPropagation(); openArticle('duygu')">Read More</a>
+            </div>
+        </article>
+    </div>
+
+    <section id="hakkimda" style="max-width: 1100px; margin: 5rem auto; padding: 0 2rem;">
+        <h2 style="font-size: 1.8rem; margin-bottom: 1.5rem; font-weight: 500; letter-spacing: -0.5px;">About Me</h2>
+        <div style="background: white; padding: 2rem; border-radius: 8px; border: 1px solid #e5e5e5; line-height: 1.8;">
+            <p style="margin-bottom: 1rem; color: #666;">Hello! I am a psychology student and I created this blog with a passion for exploring the complex world of the human mind.</p>
+            <p style="margin-bottom: 1rem; color: #666;">My goal is to take the theories and concepts I've learned during my university education and explain how we can apply them in daily life, rather than leaving them in an academic framework.</p>
+            <p style="color: #666;">Psychology is a branch of science that directly affects all of our lives. On this blog, I aim to help you get to know yourself better and improve your mental health by making scientific information understandable and applicable.</p>
+        </div>
+    </section>
+
+    <section id="iletisim" style="max-width: 1100px; margin: 5rem auto; padding: 0 2rem;">
+        <h2 style="font-size: 1.8rem; margin-bottom: 1.5rem; font-weight: 500; letter-spacing: -0.5px;">Contact</h2>
+        <div style="background: white; padding: 2rem; border-radius: 8px; border: 1px solid #e5e5e5;">
+            <p style="margin-bottom: 1.5rem; color: #666;">You can contact me for your questions, suggestions or collaboration offers.</p>
+            <div style="display: grid; gap: 1rem;">
+                <div style="color: #666;">
+                    <strong style="color: #1a1a1a;">Email:</strong> belkisaltindag2004@gmail.com
+                </div>
+                <div style="color: #666;">
+                    <strong style="color: #1a1a1a;">LinkedIn:</strong> Belkıs Altındağ
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Psychology Writings. All rights reserved.</p>
+        <p>Please seek professional help for serious mental health issues.</p>
+    </footer>
+
+    <div id="articleModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1000; overflow-y: auto;">
+        <div style="max-width: 800px; margin: 2rem auto; background: white; border-radius: 8px; position: relative;">
+            <button onclick="closeArticle()" style="position: sticky; top: 1rem; left: calc(100% - 3rem); background: white; border: 1px solid #ff6b9d; border-radius: 50%; width: 40px; height: 40px; cursor: pointer; font-size: 1.2rem; z-index: 10; margin: 1rem 1rem 0 0; float: right; color: #ff6b9d; transition: all 0.3s ease;">×</button>
+            <div id="articleContent" style="padding: 3rem; clear: both;"></div>
+        </div>
+    </div>
+
+    <script>
+        const articles = {
+            "yeme-bozukluklari": {
+                title: 'Yeme Davranışlarının Psikolojik Boyutu: Yemekten Daha Fazlası',
+                category: 'Eating Disorders',
+                date: 'Jun 24, 2026',
+                content: `
+                    <p style="margin-bottom: 1.5rem; line-height: 1.8; color: #666;">Yemek yemek insanın en önemli ve hayati ihtiyaçlarındandır. Ancak yemek, çoğu zaman yalnızca açlığımızı gidermekten ibaret değildir. Bazen duygu durumumuza bağlı olarak kendimizi mutlu hissettiğimizde bir şeyler yemek isterken bazen de stresli, üzgün ya da kaygılı olduğumuz zamanlarda yemeğe yönelebiliriz. Bu nedenle yeme davranışımız, duygularımız ve günlük yaşantımızla yakından ilişkilidir.</p>
+                    <p style="margin-bottom: 1.5rem; line-height: 1.8; color: #666;">Çoğu insan zaman zaman yeme alışkanlıklarında değişiklikler yaşayabilir. Günümüzde sosyal medyada karşılaştığımız mükemmel beden algısı insanlara sanki bir kalıba uymalıymış ve sosyal medyada gördüğü insanlar gibi olmalıymış hissi yaratabiliyor ve yanlış algılara sebep olabiliyor. Bazen insanın çevresinden duyduğu ‘kilo almışsın’ ya da ‘çok zayıflamışsın’ gibi yorumlar insan algısını tehlikeli bir şekilde etkileyebiliyor. İnsan kimi zaman birinden gördüğü bir diyet programını ya da kendi bedeninin neye ne oranda ihtiyacı olduğunu bilmeden kendi kendine diyetler uygulayabiliyor. Bunlar gibi risk faktörlerinin de etkisiyle yemekle ilgili düşünceler günün büyük bir kısmını kaplamaya başladığında, kişinin bedeniyle ilgili kaygıları arttığında veya yeme davranışları günlük yaşamını olumsuz etkilemeye başladığında bu durum bir yeme bozukluğunun işareti olabilir.</p>
+                    
+                    <h3 style="font-size: 1.3rem; margin: 2rem 0 1rem; font-weight: 500;">Yeme Bozuklukları Nedir?</h3>
+                    <p style="margin-bottom: 1.5rem; line-height: 1.8; color: #666;">Yeme bozuklukları, insanın yeme alışkanlıklarını, yemeğe karşı bakış açısını, beden algısı ve duygu durumunu büyük ölçüde etkileyen psikolojik rahatsızlıklardır. Bu durum yalnızca yeme alışkanlıklarıyla sınırlı değildir; kişinin kendisiyle, bedeniyle ve duygularıyla kurduğu ilişkiyi de etkileyebilir.</p>
+                    
+                    <h3 style="font-size: 1.3rem; margin: 2rem 0 1rem; font-weight: 500;">Yeme Bozuklukları Neden Ortaya Çıkar?</h3>
+                    <p style="margin-bottom: 1.5rem; line-height: 1.8; color: #666;">Yeme bozukluklarının aslında tek bir nedeni yoktur. Düşük benlik saygısı, toplumsal güzellik algıları, yatkınlık, aile dinamikleri, travmatik yaşantılar ve yoğun stres gibi birçok faktör bu süreçte rol oynayabilir.</p>
+                    
+                    <h3 style="font-size: 1.3rem; margin: 2rem 0 1rem; font-weight: 500;">En Yaygın Yeme Bozuklukları</h3>
+                    <p style="margin-bottom: 1rem; line-height: 1.8; color: #1a1a1a;"><strong>1) Anorexia Nervosa</strong></p>
+                    <p style="margin-bottom: 1.5rem; line-height: 1.8; color: #666;">Anoreksiya yeme bozukluklarının arasında en riskli olan bozukluktur. Kişi ciddi bir kilo alma korkusuna sahiptir ve yediği yiyeceklerin kilo aldıracağı korkusuyla yemek tüketimini ciddi anlamda kısıtlar. Çok zayıf olmasına rağmen aynaya baktığında kendisini hala kilolu olarak görür. Yediği her yiyeceğin kalorisini hesaplama, yediği yiyecekten kısma, kendisni uzun süreli aç bırakma, sürekli tartıya çıkma, takıntılı şekilde diyet ve kilo hakkında düşünmek gibi davranışları bulunmakta. İlerlemesi durumunda organlara zarar vermekte ve ölümcül sonuçlara yol açmaktadır.</p>
+                    
+                    <p style="margin-bottom: 1rem; line-height: 1.8; color: #1a1a1a;"><strong>2) Bulimia Nervosa</strong></p>
+                    <p style="margin-bottom: 1.5rem; line-height: 1.8; color: #666;">Bu kişiler anoreksiyada görülenin aksine genelde normal bir kiloya sahiplerdir. Belirli atak zamanlarında çok yemek yeme davranışı gösterirler. Kendilerini durduramadan yemek yerler fakat bunun psikolojik olarak geri dönüşü genelde ağır olur. Tekrarlayan aşırı yeme ataklarının ardından duydukları pişmanlık sebebiyle kusma, aşırı egzersiz yapma veya uzun süre aç kalma gibi telafi davranışlarının görülür. Bu pişmanlık onlara kendilerini kısıtlayacak, aç bırakacak kadar etkide bulunur ve psikolojik olarak çok suçlu hissederler. Başta bilinçli şekilde kusma ve diğer suçluluk davranışları gibi durumlar zamanla organlarına ciddi ve kalıcı hasarlar verebilmektedir.</p>
+                    
+                    <p style="margin-bottom: 1rem; line-height: 1.8; color: #1a1a1a;"><strong>3) Binge Eating Disorder (Tıkınırcasına Yeme Bozukluğu)</strong></p>
+                    <p style="margin-bottom: 1.5rem; line-height: 1.8; color: #666;">Bu anoreksiya ve bulimiyadan farklı olarak aç bırakmanın aksine yemek yeme davranışını durduramamadır. Kişinin kısa sürede normalden çok daha fazla yemek tüketmesi ve bu sırada kontrolünü kaybettiğini hissetmesidir. Kişi kendisini yemek yemekten alıkoyamaz ve doyduğu halde hala daha durmaksızın yemeye devam eder. Bulimiyadan farklı olarak telafi davranışları görülmez. Kontrolsüz kilo alımına sebep olmaktadır.</p>
+                    
+                    <h3 style="font-size: 1.3rem; margin: 2rem 0 1rem; font-weight: 500;">Yeme Bozukluklarının Belirtileri</h3>
+                    <ul style="margin-bottom: 1.5rem; padding-left: 1.5rem; color: #666; line-height: 1.8;">
+                        <li>Yemek ve kilo ile aşırı meşgul olma</li>
+                        <li>Sürekli diyet yapma düşüncesi</li>
+                        <li>Beden görünümüyle ilgili yoğun kaygı</li>
+                        <li>Suçluluk hissiyle yeme davranışı</li>
+                        <li>Sosyal ortamlarda yemek yemekten kaçınma</li>
+                        <li>Hızlı kilo değişimleri</li>
+                    </ul>
+                    
+                    <h3 style="font-size: 1.3rem; margin: 2rem 0 1rem; font-weight: 500;">Ne Zaman Destek Alınmalıdır?</h3>
+                    <p style="margin-bottom: 1.5rem; line-height: 1.8; color: #666;">Yeme davranışları kişinin günlük yaşamını, fiziksel sağlığını veya ruhsal iyilik halini etkileymeye başladığında profesyonel destek almak önemlidir. Erken dönemde alınan psikolojik destek bu durumu daha fazla ilerlemeden durdurulabilir iyileşme sürecini olumlu yönde etkileyebilir.</p>
+                    
+                    <h3 style="font-size: 1.3rem; margin: 2rem 0 1rem; font-weight: 500;">Sonuç</h3>
+                    <p style="margin-bottom: 1.5rem; line-height: 1.8; color: #666;">Yeme davranışı hayatımızın vazgeçilmez bir parçasıdır. Bu derece hayatımızın önemli bir parçası olan davranışta görülen bozukluklar insanı birçok alanda olumsuz etkiler. Yeme bozuklukları yalnızca yemekle ilgili bir problem değildir. Çoğu zaman kişinin duygusal dünyası, stresle baş etme biçimi ve kendilik algısıyla yakından ilişkilidir. Bu nedenle tedavi sürecinde hem fiziksel hem de psikolojik ihtiyaçların birlikte ele alınması önem taşır. Şunun önemini unutmamalıyız ki sayılan belirtilerden birkaç tanesini bile görmeniz durumunda destek almanız uzun vadede sizi olumsuz etkilerden koruyabilir.</p>
+                    
+                    <p style="margin-top: 2rem; font-weight: 500; color: #1a1a1a; text-align: right;">Belkıs ALTINDAĞ</p>
+                `
+            },
+            mindfulness: {
+                title: 'Mindfulness: The Art of Living in the Now',
+                category: 'Mindfulness',
+                date: 'Jan 15, 2026',
+                content: `
+                    <p style="margin-bottom: 1.5rem; line-height: 1.8; color: #666;">Mindfulness or awareness meditation has gained an important place in both scientific research and daily life practices in recent years.</p>
+                    <h3 style="font-size: 1.3rem; margin: 2rem 0 1rem; font-weight: 500;">What is Mindfulness?</h3>
+                    <p style="margin-bottom: 1.5rem; line-height: 1.8; color: #666;">Mindfulness is the state of being aware and focusing on the present moment in a non-judgmental way.</p>
+                    <h3 style="font-size: 1.3rem; margin: 2rem 0 1rem; font-weight: 500;">Scientific Benefits</h3>
+                    <p style="margin-bottom: 1.5rem; line-height: 1.8; color: #666;">Research shows that regular mindfulness practice reduces stress levels and improves emotional regulation.</p>
+                `
+            },
+            bilissel: {
+                title: 'Cognitive Distortions and Thought Patterns',
+                category: 'Cognitive Psychology',
+                date: 'Jan 12, 2026',
+                content: `
+                    <p style="margin-bottom: 1.5rem; line-height: 1.8; color: #666;">Cognitive distortions are systematic thinking errors that cause us to misinterpret reality.</p>
+                    <h3 style="font-size: 1.3rem; margin: 2rem 0 1rem; font-weight: 500;">Common Distortions</h3>
+                    <p style="margin-bottom: 1.5rem; line-height: 1.8; color: #666;">Black-and-white thinking, overgeneralization, and catastrophizing are among the most common distortions.</p>
+                `
+            },
+            gelisim: {
+                title: 'Personal Growth: Discover Your Potential',
+                category: 'Developmental Psychology',
+                date: 'Jan 8, 2026',
+                content: `
+                    <p style="margin-bottom: 1.5rem; line-height: 1.8; color: #666;">Personal development is a process of continuous learning. Maslow's hierarchy of needs can guide us on this journey.</p>
+                `
+            },
+            baglanma: {
+                title: 'Attachment Styles and Relationships',
+                category: 'Relationships',
+                date: 'Jan 5, 2026',
+                content: `
+                    <p style="margin-bottom: 1.5rem; line-height: 1.8; color: #666;">Attachment theory explains how relationships with caregivers in childhood shape our adult connections.</p>
+                `
+            },
+            motivasyon: {
+                title: 'Psychology of Motivation: Secrets of Action',
+                category: 'Motivation',
+                date: 'Jan 2, 2026',
+                content: `
+                    <p style="margin-bottom: 1.5rem; line-height: 1.8; color: #666;">Motivation is the power that moves and directs our behaviors. Understanding internal and external motivation is key.</p>
+                `
+            },
+            duygu: {
+                title: 'Emotion Regulation Skills',
+                category: 'Emotional Health',
+                date: 'Dec 30, 2025',
+                content: `
+                    <p style="margin-bottom: 1.5rem; line-height: 1.8; color: #666;">Emotion regulation is the ability to experience and express our emotions in a healthy way.</p>
+                `
+            }
+        };
+
+        function openArticle(articleId) {
+            const article = articles[articleId];
+            const modal = document.getElementById('articleModal');
+            const content = document.getElementById('articleContent');
+            
+            content.innerHTML = `
+                <span style="display: inline-block; color: #666; font-size: 0.8rem; margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.5px;">${article.category}</span>
+                <h1 style="font-size: 2rem; margin-bottom: 0.5rem; font-weight: 500; letter-spacing: -0.5px; line-height: 1.3;">${article.title}</h1>
+                <p style="color: #999; font-size: 0.9rem; margin-bottom: 2rem;">${article.date}</p>
+                ${article.content}
+            `;
+            
+            modal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeArticle() {
+            document.getElementById('articleModal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeArticle();
+            }
+        });
+
+        document.getElementById('articleModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeArticle();
+            }
+        });
+
+        const closeBtn = document.querySelector('#articleModal button');
+        closeBtn.addEventListener('mouseenter', function() {
+            this.style.background = '#ff6b9d';
+            this.style.color = 'white';
+            this.style.transform = 'rotate(90deg) scale(1.1)';
+        });
+
+        closeBtn.addEventListener('mouseleave', function() {
+            this.style.background = 'white';
+            this.style.color = '#ff6b9d';
+            this.style.transform = 'rotate(0deg) scale(1)';
+        });
+    </script>
+</body>
+</html>
