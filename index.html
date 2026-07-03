@@ -1,594 +1,794 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Psychology Writings</title>
-    <style>
-        /* Smooth Scrolling added here */
-        html {
-            scroll-behavior: smooth;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Psychology Writings</title>
+<style>
+/* Smooth Scrolling added here */
+html {
+scroll-behavior: smooth;
+}
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
-            background: #fafafa;
-            min-height: 100vh;
-            color: #1a1a1a;
-            line-height: 1.6;
-        }
+body {
+font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+background: #fafafa;
+min-height: 100vh;
+color: #1a1a1a;
+line-height: 1.6;
+}
 
-        header {
-            background: linear-gradient(135deg, #ff6b9d 0%, #c44569 100%);
-            padding: 1.2rem 0;
-            border-bottom: none;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            animation: slideDown 0.5s ease;
-            box-shadow: 0 2px 10px rgba(255, 107, 157, 0.2);
-        }
+header {
+background: linear-gradient(135deg, #ff6b9d 0%, #c44569 100%);
+padding: 1.2rem 0;
+border-bottom: none;
+position: sticky;
+top: 0;
+z-index: 100;
+animation: slideDown 0.5s ease;
+box-shadow: 0 2px 10px rgba(255, 107, 157, 0.2);
+}
 
-        @keyframes slideDown {
-            from {
-                transform: translateY(-100%);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
+@keyframes slideDown {
+from {
+transform: translateY(-100%);
+opacity: 0;
+}
+to {
+transform: translateY(0);
+opacity: 1;
+}
+}
 
-        nav {
-            max-width: 1100px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 2rem;
-        }
+nav {
+max-width: 1100px;
+margin: 0 auto;
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 0 2rem;
+}
 
-        .logo {
-            font-size: 1.1rem;
-            font-weight: 500;
-            color: white;
-            letter-spacing: -0.3px;
-        }
+.logo {
+font-size: 1.1rem;
+font-weight: 500;
+color: white;
+letter-spacing: -0.3px;
+}
 
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-        }
+.nav-links {
+display: flex;
+gap: 2rem;
+list-style: none;
+}
 
-        .nav-links a {
-            text-decoration: none;
-            color: rgba(255, 255, 255, 0.9);
-            font-size: 0.95rem;
-            font-weight: 400;
-            transition: all 0.3s ease;
-            position: relative;
-            padding: 0.5rem 0;
-        }
+.nav-links a {
+text-decoration: none;
+color: rgba(255, 255, 255, 0.9);
+font-size: 0.95rem;
+font-weight: 400;
+transition: all 0.3s ease;
+position: relative;
+padding: 0.5rem 0;
+}
 
-        .nav-links a:hover {
-            color: white;
-            transform: translateY(-2px);
-        }
+.nav-links a:hover {
+color: white;
+transform: translateY(-2px);
+}
 
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 0;
-            height: 2px;
-            background: white;
-            transition: width 0.3s ease;
-        }
+.nav-links a::after {
+content: '';
+position: absolute;
+bottom: 0;
+left: 50%;
+transform: translateX(-50%);
+width: 0;
+height: 2px;
+background: white;
+transition: width 0.3s ease;
+}
 
-        .nav-links a:hover::after {
-            width: 100%;
-        }
+.nav-links a:hover::after {
+width: 100%;
+}
 
-        .hero {
-            max-width: 1100px;
-            margin: 4rem auto 3rem;
-            padding: 0 2rem;
-        }
+.hero {
+max-width: 1100px;
+margin: 4rem auto 3rem;
+padding: 0 2rem;
+}
 
-        .hero h1 {
-            font-size: 2.2rem;
-            color: #1a1a1a;
-            margin-bottom: 0.8rem;
-            font-weight: 500;
-            letter-spacing: -0.5px;
-        }
+.hero h1 {
+font-size: 2.2rem;
+color: #1a1a1a;
+margin-bottom: 0.8rem;
+font-weight: 500;
+letter-spacing: -0.5px;
+}
 
-        .hero p {
-            font-size: 1.05rem;
-            color: #666;
-            font-weight: 400;
-        }
+.hero p {
+font-size: 1.05rem;
+color: #666;
+font-weight: 400;
+}
 
-        .blog-container {
-            max-width: 1100px;
-            margin: 3rem auto;
-            padding: 0 2rem;
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: 2rem;
-        }
+.blog-container {
+max-width: 1100px;
+margin: 3rem auto;
+padding: 0 2rem;
+display: grid;
+grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+gap: 2rem;
+}
 
-        .blog-card {
-            background: white;
-            border-radius: 8px;
-            overflow: hidden;
-            border: 1px solid #e5e5e5;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            cursor: pointer;
-            position: relative;
-        }
+.blog-card {
+background: white;
+border-radius: 8px;
+overflow: hidden;
+border: 1px solid #e5e5e5;
+transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+cursor: pointer;
+position: relative;
+}
 
-        .blog-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, rgba(255, 107, 157, 0.05) 0%, rgba(196, 69, 105, 0.05) 100%);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            z-index: 1;
-        }
+.blog-card::before {
+content: '';
+position: absolute;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+background: linear-gradient(135deg, rgba(255, 107, 157, 0.05) 0%, rgba(196, 69, 105, 0.05) 100%);
+opacity: 0;
+transition: opacity 0.3s ease;
+z-index: 1;
+}
 
-        .blog-card:hover::before {
-            opacity: 1;
-        }
+.blog-card:hover::before {
+opacity: 1;
+}
 
-        .blog-card:hover {
-            transform: translateY(-8px) scale(1.02);
-            box-shadow: 0 12px 30px rgba(255, 107, 157, 0.15);
-            border-color: #ff6b9d;
-        }
+.blog-card:hover {
+transform: translateY(-8px) scale(1.02);
+box-shadow: 0 12px 30px rgba(255, 107, 157, 0.15);
+border-color: #ff6b9d;
+}
 
-        .blog-image {
-            width: 100%;
-            height: 200px;
-            background: linear-gradient(135deg, #f5f7fa 0%, #e9ecef 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 3rem;
-            border-bottom: 1px solid #e5e5e5;
-        }
+.blog-image {
+width: 100%;
+height: 200px;
+background: linear-gradient(135deg, #f5f7fa 0%, #e9ecef 100%);
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 3rem;
+border-bottom: 1px solid #e5e5e5;
+}
 
-        .blog-content {
-            padding: 1.5rem;
-            position: relative;
-            z-index: 2;
-        }
+.blog-content {
+padding: 1.5rem;
+position: relative;
+z-index: 2;
+}
 
-        .blog-category {
-            display: inline-block;
-            color: #666;
-            padding: 0;
-            font-size: 0.8rem;
-            margin-bottom: 0.8rem;
-            font-weight: 400;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
+.blog-category {
+display: inline-block;
+color: #666;
+padding: 0;
+font-size: 0.8rem;
+margin-bottom: 0.8rem;
+font-weight: 400;
+text-transform: uppercase;
+letter-spacing: 0.5px;
+}
 
-        .blog-title {
-            font-size: 1.25rem;
-            margin-bottom: 0.7rem;
-            color: #1a1a1a;
-            font-weight: 500;
-            letter-spacing: -0.3px;
-            line-height: 1.4;
-        }
+.blog-title {
+font-size: 1.25rem;
+margin-bottom: 0.7rem;
+color: #1a1a1a;
+font-weight: 500;
+letter-spacing: -0.3px;
+line-height: 1.4;
+}
 
-        .blog-excerpt {
-            color: #666;
-            line-height: 1.6;
-            margin-bottom: 1rem;
-            font-size: 0.95rem;
-            font-weight: 400;
-        }
+.blog-excerpt {
+color: #666;
+line-height: 1.6;
+margin-bottom: 1rem;
+font-size: 0.95rem;
+font-weight: 400;
+}
 
-        .blog-meta {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            color: #999;
-            font-size: 0.85rem;
-            padding-top: 1rem;
-            border-top: 1px solid #f0f0f0;
-        }
+.blog-meta {
+display: flex;
+justify-content: space-between;
+align-items: center;
+color: #999;
+font-size: 0.85rem;
+padding-top: 1rem;
+border-top: 1px solid #f0f0f0;
+}
 
-        .read-more {
-            color: #ff6b9d;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            margin-top: 1rem;
-            font-size: 0.9rem;
-            font-weight: 500;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-        }
+.read-more {
+color: #ff6b9d;
+text-decoration: none;
+display: inline-flex;
+align-items: center;
+margin-top: 1rem;
+font-size: 0.9rem;
+font-weight: 500;
+transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+position: relative;
+}
 
-        .read-more:hover {
-            gap: 0.5rem;
-            color: #c44569;
-            transform: translateX(4px);
-        }
+.read-more:hover {
+gap: 0.5rem;
+color: #c44569;
+transform: translateX(4px);
+}
 
-        .read-more::after {
-            content: '→';
-            margin-left: 0.3rem;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
+.read-more::after {
+content: '→';
+margin-left: 0.3rem;
+transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
 
-        .read-more:hover::after {
-            margin-left: 0.6rem;
-            transform: translateX(4px);
-        }
+.read-more:hover::after {
+margin-left: 0.6rem;
+transform: translateX(4px);
+}
 
-        footer {
-            background: white;
-            text-align: center;
-            padding: 2rem;
-            margin-top: 4rem;
-            color: #999;
-            border-top: 1px solid #e5e5e5;
-            font-size: 0.9rem;
-        }
+footer {
+background: white;
+text-align: center;
+padding: 2rem;
+margin-top: 4rem;
+color: #999;
+border-top: 1px solid #e5e5e5;
+font-size: 0.9rem;
+}
 
-        footer p {
-            margin-bottom: 0.5rem;
-        }
+footer p {
+margin-bottom: 0.5rem;
+}
 
-        #ana-sayfa, #yazilar, #hakkimda, #iletisim {
-            scroll-margin-top: 80px;
-        }
+#ana-sayfa, #yazilar, #hakkimda, #iletisim {
+scroll-margin-top: 80px;
+}
 
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 1.8rem;
-            }
-            
-            .blog-container {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-            
-            .nav-links {
-                gap: 1.2rem;
-                font-size: 0.9rem;
-            }
+@media (max-width: 768px) {
+.hero h1 {
+font-size: 1.8rem;
+}
 
-            nav {
-                padding: 0 1.5rem;
-            }
+.blog-container {
+grid-template-columns: 1fr;
+gap: 1.5rem;
+}
 
-            .hero, .blog-container {
-                padding: 0 1.5rem;
-            }
-        }
-    </style>
+.nav-links {
+gap: 1.2rem;
+font-size: 0.9rem;
+}
+
+nav {
+padding: 0 1.5rem;
+}
+
+.hero, .blog-container {
+padding: 0 1.5rem;
+}
+}
+</style>
 </head>
 <body>
-    <header>
-        <nav>
-            <div class="logo">Psychology</div>
-            <ul class="nav-links">
-                <li><a href="#ana-sayfa">Home</a></li>
-                <li><a href="#yazilar">Articles</a></li>
-                <li><a href="#hakkimda">About</a></li>
-                <li><a href="#iletisim">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+<header>
+<nav>
+<div class="logo">Psychology</div>
+<ul class="nav-links">
+<li><a href="#ana-sayfa">Home</a></li>
+<li><a href="#yazilar">Articles</a></li>
+<li><a href="#hakkimda">About</a></li>
+<li><a href="#iletisim">Contact</a></li>
+</ul>
+</nav>
+</header>
 
-    <div class="hero" id="ana-sayfa">
-        <h1>Journey into the Depths of Psychology</h1>
-        <p>Find meaning in daily life while exploring the mysteries of the human mind</p>
-    </div>
+<div class="hero" id="ana-sayfa">
+<h1>Journey into the Depths of Psychology</h1>
+<p>Find meaning in daily life while exploring the mysteries of the human mind</p>
+</div>
 
-    <div class="blog-container" id="yazilar">
-        <!-- Yeni Eklenen Yeme Bozuklukları Makalesi -->
-        <article class="blog-card" onclick="openArticle('yeme-bozukluklari')">
-            <div class="blog-image">🍲</div>
-            <div class="blog-content">
-                <span class="blog-category">Eating Disorders</span>
-                <h2 class="blog-title">Yeme Davranışlarının Psikolojik Boyutu: Yemekten Daha Fazlası</h2>
-                <p class="blog-excerpt">Yemek yemek hayati bir ihtiyaçtır ancak çoğu zaman yalnızca açlığımızı gidermekten ibaret değildir. Yeme bozukluklarının psikolojik boyutlarını inceliyoruz.</p>
-                <div class="blog-meta">
-                    <span>Jun 24, 2026</span>
-                    <span>8 min read</span>
-                </div>
-                <a href="#yeme-bozukluklari" class="read-more" onclick="event.stopPropagation(); openArticle('yeme-bozukluklari')">Read More</a>
-            </div>
-        </article>
+<div class="blog-container" id="yazilar">
+<article class="blog-card" onclick="openArticle('baglanma-stilleri')">
+<div class="blog-image">❤️</div>
+<div class="blog-content">
+<span class="blog-category">Relationships</span>
+<h2 class="blog-title">Bağlanma Stilleri: İlişkilerimizin Görünmez Mimarları</h2>
+<p class="blog-excerpt">Hepimiz birilerine bağlanırız. Romantik ilişkilerden arkadaşlık dinamiklerine, farkında olmadan taşıdığımız bağlanma çeşitlerini ve kendinizi keşfedeceğiniz testi inceliyoruz.</p>
+<div class="blog-meta">
+<span>Jun 25, 2026</span>
+<span>12 min read</span>
+</div>
+<a href="#baglanma-stilleri" class="read-more" onclick="event.stopPropagation(); openArticle('baglanma-stilleri')">Read More</a>
+</div>
+</article>
 
-        <article class="blog-card" onclick="openArticle('mindfulness')">
-            <div class="blog-image">🧘‍♀️</div>
-            <div class="blog-content">
-                <span class="blog-category">Mindfulness</span>
-                <h2 class="blog-title">Mindfulness: The Art of Living in the Now</h2>
-                <p class="blog-excerpt">Mindfulness is a powerful way to step away from the stress of modern life and focus on the present. We will explore its scientific foundations.</p>
-                <div class="blog-meta">
-                    <span>Jan 15, 2026</span>
-                    <span>5 min read</span>
-                </div>
-                <a href="#mindfulness" class="read-more" onclick="event.stopPropagation(); openArticle('mindfulness')">Read More</a>
-            </div>
-        </article>
+<article class="blog-card" onclick="openArticle('yeme-bozukluklari')">
+<div class="blog-image">🍲</div>
+<div class="blog-content">
+<span class="blog-category">Eating Disorders</span>
+<h2 class="blog-title">Yeme Davranışlarının Psikolojik Boyutu: Yemekten Daha Fazlası</h2>
+<p class="blog-excerpt">Yemek yemek hayati bir ihtiyaçtır ancak çoğu zaman yalnızca açlığımızı gidermekten ibaret değildir. Yeme bozukluklarının psikolojik boyutlarını inceliyoruz.</p>
+<div class="blog-meta">
+<span>Jun 24, 2026</span>
+<span>8 min read</span>
+</div>
+<a href="#yeme-bozukluklari" class="read-more" onclick="event.stopPropagation(); openArticle('yeme-bozukluklari')">Read More</a>
+</div>
+</article>
 
-        <article class="blog-card" onclick="openArticle('bilissel')">
-            <div class="blog-image">💭</div>
-            <div class="blog-content">
-                <span class="blog-category">Cognitive Psychology</span>
-                <h2 class="blog-title">Cognitive Distortions and Thought Patterns</h2>
-                <p class="blog-excerpt">Our minds sometimes play games with us. Cognitive distortions are errors in thinking. Let's examine common patterns and how to handle them.</p>
-                <div class="blog-meta">
-                    <span>Jan 12, 2026</span>
-                    <span>7 min read</span>
-                </div>
-                <a href="#bilissel" class="read-more" onclick="event.stopPropagation(); openArticle('bilissel')">Read More</a>
-            </div>
-        </article>
+<article class="blog-card" onclick="openArticle('overthinking')">
+<div class="blog-image">🧠</div>
+<div class="blog-content">
+<span class="blog-category">Overthinking</span>
+<h2 class="blog-title">Overthinking: Zihnimiz Neden Susmaz?</h2>
+<p class="blog-excerpt">Eminim ki birçoğumuzun hatta günümüzün en yaygın problemlerinden biridir, bir şeyi aşırı ve tekrar tekrar düşünmek. Overthinking nedir ve nasıl başa çıkılır?</p>
+<div class="blog-meta">
+<span>Jun 26, 2026</span>
+<span>6 min read</span>
+</div>
+<a href="#overthinking" class="read-more" onclick="event.stopPropagation(); openArticle('overthinking')">Read More</a>
+</div>
+</article>
+</div>
 
-        <article class="blog-card" onclick="openArticle('gelisim')">
-            <div class="blog-image">🌱</div>
-            <div class="blog-content">
-                <span class="blog-category">Developmental Psychology</span>
-                <h2 class="blog-title">Personal Growth: Discover Your Potential</h2>
-                <p class="blog-excerpt">There is a huge potential waiting to be discovered inside each of us. Start your journey of self-actualization based on Maslow's hierarchy.</p>
-                <div class="blog-meta">
-                    <span>Jan 8, 2026</span>
-                    <span>6 min read</span>
-                </div>
-                <a href="#gelisim" class="read-more" onclick="event.stopPropagation(); openArticle('gelisim')">Read More</a>
-            </div>
-        </article>
 
-        <article class="blog-card" onclick="openArticle('baglanma')">
-            <div class="blog-image">❤️</div>
-            <div class="blog-content">
-                <span class="blog-category">Relationships</span>
-                <h2 class="blog-title">Attachment Styles and Relationships</h2>
-                <p class="blog-excerpt">How do attachment styles developed in childhood affect adult relationships? Understanding these styles is key to healthier connections.</p>
-                <div class="blog-meta">
-                    <span>Jan 5, 2026</span>
-                    <span>8 min read</span>
-                </div>
-                <a href="#baglanma" class="read-more" onclick="event.stopPropagation(); openArticle('baglanma')">Read More</a>
-            </div>
-        </article>
+<section id="hakkimda" style="max-width: 1100px; margin: 5rem auto; padding: 0 2rem;">
+<h2 style="font-size: 1.8rem; margin-bottom: 1.5rem; font-weight: 500; letter-spacing: -0.5px;">About Me</h2>
+<div style="background: white; padding: 2rem; border-radius: 8px; border: 1px solid #e5e5e5; line-height: 1.8;">
+<p style="margin-bottom: 1rem; color: #666;">Hello! I am a psychology student and I created this blog with a passion for exploring the complex world of the human mind.</p>
+<p style="margin-bottom: 1rem; color: #666;">My goal is to take the theories and concepts I've learned during my university education and explain how we can apply them in daily life, rather than leaving them in an academic framework.</p>
+<p style="color: #666;">Psychology is a branch of science that directly affects all of our lives. On this blog, I aim to help you get to know yourself better and improve your mental health by making scientific information understandable and applicable.</p>
+</div>
+</section>
 
-        <article class="blog-card" onclick="openArticle('motivasyon')">
-            <div class="blog-image">🎯</div>
-            <div class="blog-content">
-                <span class="blog-category">Motivation</span>
-                <h2 class="blog-title">Psychology of Motivation: Secrets of Action</h2>
-                <p class="blog-excerpt">What is the difference between intrinsic and extrinsic motivation? Learn how to boost your drive to reach your personal goals.</p>
-                <div class="blog-meta">
-                    <span>Jan 2, 2026</span>
-                    <span>6 min read</span>
-                </div>
-                <a href="#motivasyon" class="read-more" onclick="event.stopPropagation(); openArticle('motivasyon')">Read More</a>
-            </div>
-        </article>
+<section id="iletisim" style="max-width: 1100px; margin: 5rem auto; padding: 0 2rem;">
+<h2 style="font-size: 1.8rem; margin-bottom: 1.5rem; font-weight: 500; letter-spacing: -0.5px;">Contact</h2>
+<div style="background: white; padding: 2rem; border-radius: 8px; border: 1px solid #e5e5e5;">
+<p style="margin-bottom: 1.5rem; color: #666;">You can contact me for your questions, suggestions or collaboration offers.</p>
+<div style="display: grid; gap: 1rem;">
+<div style="color: #666;">
+<strong style="color: #1a1a1a;">Email:</strong> belkisaltindag2004@gmail.com
+</div>
+<div style="color: #666;">
+<strong style="color: #1a1a1a;">LinkedIn:</strong> Belkıs Altındağ
+</div>
+</div>
+</div>
+</section>
 
-        <article class="blog-card" onclick="openArticle('duygu')">
-            <div class="blog-image">😌</div>
-            <div class="blog-content">
-                <span class="blog-category">Emotional Health</span>
-                <h2 class="blog-title">Emotion Regulation Skills</h2>
-                <p class="blog-excerpt">Managing emotions healthily instead of suppressing them is critical for mental health. Explore regulation techniques for daily life.</p>
-                <div class="blog-meta">
-                    <span>Dec 30, 2025</span>
-                    <span>7 min read</span>
-                </div>
-                <a href="#duygu" class="read-more" onclick="event.stopPropagation(); openArticle('duygu')">Read More</a>
-            </div>
-        </article>
-    </div>
+<footer>
+<p>&copy; 2026 Psychology Writings. All rights reserved.</p>
+<p>Please seek professional help for serious mental health issues.</p>
+</footer>
 
-    <section id="hakkimda" style="max-width: 1100px; margin: 5rem auto; padding: 0 2rem;">
-        <h2 style="font-size: 1.8rem; margin-bottom: 1.5rem; font-weight: 500; letter-spacing: -0.5px;">About Me</h2>
-        <div style="background: white; padding: 2rem; border-radius: 8px; border: 1px solid #e5e5e5; line-height: 1.8;">
-            <p style="margin-bottom: 1rem; color: #666;">Hello! I am a psychology student and I created this blog with a passion for exploring the complex world of the human mind.</p>
-            <p style="margin-bottom: 1rem; color: #666;">My goal is to take the theories and concepts I've learned during my university education and explain how we can apply them in daily life, rather than leaving them in an academic framework.</p>
-            <p style="color: #666;">Psychology is a branch of science that directly affects all of our lives. On this blog, I aim to help you get to know yourself better and improve your mental health by making scientific information understandable and applicable.</p>
-        </div>
-    </section>
+<div id="articleModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1000; overflow-y: auto;">
+<div style="max-width: 800px; margin: 2rem auto; background: white; border-radius: 8px; position: relative;">
+<button onclick="closeArticle()" style="position: sticky; top: 1rem; left: calc(100% - 3rem); background: white; border: 1px solid #ff6b9d; border-radius: 50%; width: 40px; height: 40px; cursor: pointer; font-size: 1.2rem; z-index: 10; margin: 1rem 1rem 0 0; float: right; color: #ff6b9d; transition: all 0.3s ease;">×</button>
+<div id="articleContent" style="padding: 3rem; clear: both;"></div>
+</div>
+</div>
 
-    <section id="iletisim" style="max-width: 1100px; margin: 5rem auto; padding: 0 2rem;">
-        <h2 style="font-size: 1.8rem; margin-bottom: 1.5rem; font-weight: 500; letter-spacing: -0.5px;">Contact</h2>
-        <div style="background: white; padding: 2rem; border-radius: 8px; border: 1px solid #e5e5e5;">
-            <p style="margin-bottom: 1.5rem; color: #666;">You can contact me for your questions, suggestions or collaboration offers.</p>
-            <div style="display: grid; gap: 1rem;">
-                <div style="color: #666;">
-                    <strong style="color: #1a1a1a;">Email:</strong> belkisaltindag2004@gmail.com
-                </div>
-                <div style="color: #666;">
-                    <strong style="color: #1a1a1a;">LinkedIn:</strong> Belkıs Altındağ
-                </div>
-            </div>
-        </div>
-    </section>
+<script>
+const articles = {
+"baglanma-stilleri": {
+title: 'Bağlanma Stilleri: İlişkilerimizin Görünmez Mimarları',
+category: 'Relationships',
+date: 'Jun 25, 2026',
+content: `
+<p style="margin-bottom: 1.5rem; line-height: 1.8; color: #666;">Hepimiz birilerine bağlanırız. Bazen partnerimize, bazen en yakın arkadaşımıza, bazen de ailemize… İnsan yaşamı boyunca farklı gelişim dönemlerinde, değişim gösteren bağlanma stilleri kurmaktadır. Bağlanmanın temeli erken çocukluk döneminde atılır. Bebeğin bakım vereniyle daha çok annesiyle kurduğu ilişkinin türü, gelecekte ilişkilerinde etkin rol oynar. Bağlanma bireylerin kendileri için önemli olan kişilere karşı geliştirdikleri yoğun duygulardır. Adler’e göre güçsüzlüğü ve çaresizliği nedeniyle bir çocuğun aile içinde yaşadığı gibi yetişkinler de güçsüzlüklerini başkalarıyla bir araya gelerek aşmaya çalışırlar. İnsanların yetersizlik duyguları ve yaşamın güçlüklerinin tek başına üstesinden gelememeleri, onları bir toplumun üyesi olarak yaşamaya iter. Ama bu bağların şekli her zaman aynı değildir. Kimimiz ilişkilerde kendimizi güvende hisseder, kimimiz mesafe korumayı tercih eder, kimimiz ise yakınlıkla mesafe arasında gidip gelirken zorlanır. İlginç olan şu ki: Bu ilişki tarzlarının çoğu, düşündüğümüzden çok daha derine, çocukluğumuzda kurduğumuz ilk bağlara kadar uzanır.</p>
+<p style="margin-bottom: 1.5rem; line-height: 1.8; color: #666;">Bağlanma stilleri, hayatımızın her alanına uzanır. Romantik ilişkilerden arkadaşlık dinamiklerine, aile içi iletişimden sınır koyma becerilerine ince ama güçlü şekilde dokunur. Bazen partnerimizin mesajına geç cevap vermesine verdiğimiz aşırı tepki, bazen bir arkadaşımıza kolay kolay açılamayışımız, bazen de ailemizde hep “idare eden” kişi rolünü üstlenmemiz… Tüm bunların arkasında, farkında olmadan taşıdığımız bağlanma çeşitleri olabilir.</p>
 
-    <footer>
-        <p>&copy; 2026 Psychology Writings. All rights reserved.</p>
-        <p>Please seek professional help for serious mental health issues.</p>
-    </footer>
+<h3 style="font-size: 1.3rem; margin: 2rem 0 1rem; font-weight: 500;">Kaygılı Bağlanma: Yakınken Bile Kaybetmekten Korkmak</h3>
+<p style="margin-bottom: 1.5rem; line-height: 1.8; color: #666;">Kaygılı bağlanan biri için ilişkiler, hem çok çekici hem de çok tedirgin edici olabilir. Birini sever ama aynı anda “Ya beni terk ederse?” endişesi peşini bırakmaz. Bu yüzden partnerinin ilgisini en küçük detaylardan ölçmeye başlar. Bu tarz bağlanma stiline sahip kişiler en ufak bir mimik, farklı bir ses tonu veya davranışı fark eder ve bunları farklı yorumlayıp kendi içinde büyütür. Bir mesajın iki dakika gecikmesi, plan yapılırken ses tonunun daha kısa gelmesi, buluşmada partnerin telefona bir tık fazla bakması bile onlar için bir “tehdit” gibi hissedilebilir. Birey, partnerinin sevgisini ve ilgisini sürekli teyit etme ihtiyacı duyar. Sürekli temas ihtiyacı duyar.“Beni sevdiğini söylesin, hissettirsin, gösteriyor mu?” kaygısı sürekli vardır. Sevildiğini hissettiğinde aşırı mutluluk, küçük bir belirsizlikte ise yoğun kaygı ve endişe yaşamak, kaygılı bağlanmanın tipik bir göstergesidir. Bu durum, bireyin ilişkiye yönelik tepkilerini öngörülemez ve zaman zaman aşırı hale getirir. Aslında çok yoğun ve saf bir sevgileri vardır, içten içe kendilerini bitirmelerine sebep olan. Karşısındaki kişiye çok değer verirler ama içlerindeki o “bir gün bırakılabilirim” duygusu, ilişkideki güvenli alanı sürekli yoklar, bireyin içindeki stres ve korkuyu açığa çıkarır.</p>
+<p style="margin-bottom: 1.5rem; line-height: 1.8; color: #666;"><strong>Arkadaşlıklarda nasıldır?</strong> Kaygılı bağlanma, arkadaşlık ilişkilerini de etkiler. Bu bireyler arkadaşlarının kendilerine yeterince ilgi göstermediğini düşünebilir, küçük uzaklaşmaları kişisel olarak algılar ve kendilerini değersiz hissedebilirler. Örneğin: Bir arkadaşları başka biriyle çok vakit geçirdiğinde kaygılı bağlanan birey “Yerimi kaybediyor muyum?” sorusunu zihninde tekrarlar. Bu durum bazen karşı taraf için “fazla ilgi bekleme” gibi görünse de kaygılı bağlanan kişinin temel motivasyonu, ilişkilerini korumak ve güvenli bir bağ hissetmektir. Arkadaşlık ilişkilerine verdikleri önem ve harcadıkları enerji çoğu zaman yüksek olur; ancak bu, aynı zamanda duygusal olarak yorucu bir döngü yaratabilir. Çünkü karşısındaki kişiyi alttan almaya ve arkadaşlarıyla olan ilişkisi için daha çok çabalamaya alışmış kaygılı birey için hayat ne yazık ki çok zordur.</p>
+<p style="margin-bottom: 1.5rem; line-height: 1.8; color: #666;"><strong>Aile ilişkilerinde?</strong> Kaygılı bağlanma, bireyin aile ilişkilerini de derinden etkiler. Çocuklukta bakım verenlerin tutarsız, yetersiz veya aşırı kontrolcü tutumları, kaygılı bağlanmanın temelini atar. Baskıcı bir ailede büyümüş çocuğun ilerde kaygılı bağlanma stiline sahip olması olasıdır. Baskıcı ve tutarsız ebeveynler bireyin hem kendisine hem de başkalarına dair güven duygusunu şekillendirir. Kaygılı bağlanan kişiler, aile içindeki davranışları sürekli yorumlama ve anlamlandırma eğilimindedir; bir ebeveynin sessizliği, yüz ifadesindeki değişiklik veya küçük bir eleştiri bile “Yanlış bir şey mi yaptım?” veya “Bana kızgınlar mı?”, “Ben değersiz miyim?" sorularını tetikleyebilir.</p>
 
-    <div id="articleModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1000; overflow-y: auto;">
-        <div style="max-width: 800px; margin: 2rem auto; background: white; border-radius: 8px; position: relative;">
-            <button onclick="closeArticle()" style="position: sticky; top: 1rem; left: calc(100% - 3rem); background: white; border: 1px solid #ff6b9d; border-radius: 50%; width: 40px; height: 40px; cursor: pointer; font-size: 1.2rem; z-index: 10; margin: 1rem 1rem 0 0; float: right; color: #ff6b9d; transition: all 0.3s ease;">×</button>
-            <div id="articleContent" style="padding: 3rem; clear: both;"></div>
-        </div>
-    </div>
+<h3 style="font-size: 1.3rem; margin: 2rem 0 1rem; font-weight: 500;">Kaçıngan Bağlanma: Yakınlıktan Kaçarken Kendi Dünyasına Sığınmak</h3>
+<p style="margin-bottom: 1.5rem; line-height: 1.8; color: #666;">Kaçıngan bağlanan kişiler, sevgi ve yakınlık arzusunu içinde taşırken, aynı zamanda bu duygusal yakınlıktan çekinirler. Onlar için bağlanmak hem arzu edilen hem de korkutucu bir deneyimdir; yakınlık, sevilme ihtiyacı kadar savunmasız kalma riskini de beraberinde getirir. Bu nedenle kaçıngan bağlanma, mesafe ve bağımsızlık arayışıdır. Korunma ihtiyacı, kaçıngan bireylerin hem kendi iç dünyalarını hem de ilişkilerini dikkatle yönetmesine neden olur. Kaçıngan bağlanan kişi, sevgiyi ve bağlanmayı reddetmez; aksine buna ihtiyaç duyar. Fakat yakınlık arttıkça içsel bir gerginlik ve huzursuzluk hissi baş gösterir. Onlar için yakınlık, hem arzulanır hem de tehdit olarak algılanır; bu yüzden çoğu zaman mesafe koymak, duygusal alan yaratmak ve kendilerini korumak öncelikli hâle gelir. Kaçıngan bağlanma, birey için bir savunma mekanizması işlevi görür.</p>
+<p style="margin-bottom: 1.5rem; line-height: 1.8; color: #666;"><strong>Romantik ilişkilerde kaçıngan bağlanma:</strong> Kaçıngan bağlanan kişiler, partnerleriyle duygusal yakınlık kurmakta zorlanabilir. Samimiyet, onları rahatsız eder ve bazen içsel bir tehdit gibi algılanır. En doğru ifadeyle bağlanmaktan korkarlar. Bağlanmak, kendi içini karşısındakine açmak onlar için bir savunmasızlık durumu, bir zayıflıktır. Temastan kaçınır, yakınlaşma arttığında mesafe koyma ihtiyacı belirginleşir, partnerin ilgi ve sevgisi, kaçıngan birey için baskı unsuru hâline gelebilir. Davranışsal olarak, kaçıngan bireyler ilişkide mesafeli davranabilir, duygularını paylaşmakta çekingen olabilir ve yoğun duygusal paylaşımlardan kaçınabilir. Bu, partner tarafından ilgisizlik veya soğukluk olarak yorumlanabilir; fakat gerçekte kaçıngan bağlanmanın amacı kendini koruma çabasıdır. Bu bireyler çatışmalarla yüzleşmek yerine, sorunları görmezden gelmeyi veya partnerlerinden duygusal olarak uzaklaşmayı seçerler. Bu durum, ilişkideki duygusal bağların zayıflamasına ve partnerler arasındaki ilişkinin soğumasına neden olabilir. Kaçıngan bireyler, romantik ilişkilerde bağımsızlıklarını koruyarak duygusal dengeyi sağlamaya çalışır.</p>
+<p style="margin-bottom: 1.5rem; line-height: 1.8; color: #666;"><strong>Arkadaşlık ilişkilerinde kaçıngan bağlanma:</strong> Benzer şekilde mesafe ve bağımsızlık önceliğiyle kendini gösterir. Genellikle birkaç yakın arkadaş dışında geniş sosyal ilişkiler kurmakta zorlanırlar. Duygusal yakınlık onlar için bazen rahatsız edici olabilir; bu nedenle arkadaşlarıyla mesafeli bir iletişim kurar ve duygusal paylaşımları sınırlı tutarlar. Bu durum, karşı taraf tarafından ilgisizlik veya uzaklık olarak algılansa da aslında amacı duygusal güvenliği korumaktır. Kaçıngan bağlanma, arkadaşlıkta bağımsızlığı ve kendi alanını korumayı ön plana çıkarır.</p>
+<p style="margin-bottom: 1.5rem; line-height: 1.8; color: #666;"><strong>Aile ilişkilerinde kaçıngan bağlanma:</strong> Kaçıngan bağlanan bireyler, çocuklukta duygusal ihtiyaçlarına yeterince yanıt alamadıklarında, aile içinde mesafe koymayı öğrenirler. Duygularını sınırlı paylaşır ve bağımsız davranmayı tercih ederler. Bu kişiler, sevgi ve ilgiyi reddetmez; sadece yoğun duygusal yakınlık onları rahatsız edebilir. Kaçıngan kişiler ailelerinden gelen sevgiyi aslında isterler; fakat bunu herkes gibi doğrudan almakta zorlanırlar. İlgi gördüklerinde hemen karşılık vermek yerine biraz geri çekilip nefes almak isterler. Bu yüzden bazen soğuk, uzak ya da ilgisiz gibi görünebilirler. Oysa amaçları sevgiden kaçmak değil; duygusal yoğunluğu kendi kontrol edebilecekleri bir seviyeye indirmek ve güvende hissetmektir.</p>
 
-    <script>
-        const articles = {
-            "yeme-bozukluklari": {
-                title: 'Yeme Davranışlarının Psikolojik Boyutu: Yemekten Daha Fazlası',
-                category: 'Eating Disorders',
-                date: 'Jun 24, 2026',
-                content: `
-                    <p style="margin-bottom: 1.5rem; line-height: 1.8; color: #666;">Yemek yemek insanın en önemli ve hayati ihtiyaçlarındandır. Ancak yemek, çoğu zaman yalnızca açlığımızı gidermekten ibaret değildir. Bazen duygu durumumuza bağlı olarak kendimizi mutlu hissettiğimizde bir şeyler yemek isterken bazen de stresli, üzgün ya da kaygılı olduğumuz zamanlarda yemeğe yönelebiliriz. Bu nedenle yeme davranışımız, duygularımız ve günlük yaşantımızla yakından ilişkilidir.</p>
-                    <p style="margin-bottom: 1.5rem; line-height: 1.8; color: #666;">Çoğu insan zaman zaman yeme alışkanlıklarında değişiklikler yaşayabilir. Günümüzde sosyal medyada karşılaştığımız mükemmel beden algısı insanlara sanki bir kalıba uymalıymış ve sosyal medyada gördüğü insanlar gibi olmalıymış hissi yaratabiliyor ve yanlış algılara sebep olabiliyor. Bazen insanın çevresinden duyduğu ‘kilo almışsın’ ya da ‘çok zayıflamışsın’ gibi yorumlar insan algısını tehlikeli bir şekilde etkileyebiliyor. İnsan kimi zaman birinden gördüğü bir diyet programını ya da kendi bedeninin neye ne oranda ihtiyacı olduğunu bilmeden kendi kendine diyetler uygulayabiliyor. Bunlar gibi risk faktörlerinin de etkisiyle yemekle ilgili düşünceler günün büyük bir kısmını kaplamaya başladığında, kişinin bedeniyle ilgili kaygıları arttığında veya yeme davranışları günlük yaşamını olumsuz etkilemeye başladığında bu durum bir yeme bozukluğunun işareti olabilir.</p>
-                    
-                    <h3 style="font-size: 1.3rem; margin: 2rem 0 1rem; font-weight: 500;">Yeme Bozuklukları Nedir?</h3>
-                    <p style="margin-bottom: 1.5rem; line-height: 1.8; color: #666;">Yeme bozuklukları, insanın yeme alışkanlıklarını, yemeğe karşı bakış açısını, beden algısı ve duygu durumunu büyük ölçüde etkileyen psikolojik rahatsızlıklardır. Bu durum yalnızca yeme alışkanlıklarıyla sınırlı değildir; kişinin kendisiyle, bedeniyle ve duygularıyla kurduğu ilişkiyi de etkileyebilir.</p>
-                    
-                    <h3 style="font-size: 1.3rem; margin: 2rem 0 1rem; font-weight: 500;">Yeme Bozuklukları Neden Ortaya Çıkar?</h3>
-                    <p style="margin-bottom: 1.5rem; line-height: 1.8; color: #666;">Yeme bozukluklarının aslında tek bir nedeni yoktur. Düşük benlik saygısı, toplumsal güzellik algıları, yatkınlık, aile dinamikleri, travmatik yaşantılar ve yoğun stres gibi birçok faktör bu süreçte rol oynayabilir.</p>
-                    
-                    <h3 style="font-size: 1.3rem; margin: 2rem 0 1rem; font-weight: 500;">En Yaygın Yeme Bozuklukları</h3>
-                    <p style="margin-bottom: 1rem; line-height: 1.8; color: #1a1a1a;"><strong>1) Anorexia Nervosa</strong></p>
-                    <p style="margin-bottom: 1.5rem; line-height: 1.8; color: #666;">Anoreksiya yeme bozukluklarının arasında en riskli olan bozukluktur. Kişi ciddi bir kilo alma korkusuna sahiptir ve yediği yiyeceklerin kilo aldıracağı korkusuyla yemek tüketimini ciddi anlamda kısıtlar. Çok zayıf olmasına rağmen aynaya baktığında kendisini hala kilolu olarak görür. Yediği her yiyeceğin kalorisini hesaplama, yediği yiyecekten kısma, kendisni uzun süreli aç bırakma, sürekli tartıya çıkma, takıntılı şekilde diyet ve kilo hakkında düşünmek gibi davranışları bulunmakta. İlerlemesi durumunda organlara zarar vermekte ve ölümcül sonuçlara yol açmaktadır.</p>
-                    
-                    <p style="margin-bottom: 1rem; line-height: 1.8; color: #1a1a1a;"><strong>2) Bulimia Nervosa</strong></p>
-                    <p style="margin-bottom: 1.5rem; line-height: 1.8; color: #666;">Bu kişiler anoreksiyada görülenin aksine genelde normal bir kiloya sahiplerdir. Belirli atak zamanlarında çok yemek yeme davranışı gösterirler. Kendilerini durduramadan yemek yerler fakat bunun psikolojik olarak geri dönüşü genelde ağır olur. Tekrarlayan aşırı yeme ataklarının ardından duydukları pişmanlık sebebiyle kusma, aşırı egzersiz yapma veya uzun süre aç kalma gibi telafi davranışlarının görülür. Bu pişmanlık onlara kendilerini kısıtlayacak, aç bırakacak kadar etkide bulunur ve psikolojik olarak çok suçlu hissederler. Başta bilinçli şekilde kusma ve diğer suçluluk davranışları gibi durumlar zamanla organlarına ciddi ve kalıcı hasarlar verebilmektedir.</p>
-                    
-                    <p style="margin-bottom: 1rem; line-height: 1.8; color: #1a1a1a;"><strong>3) Binge Eating Disorder (Tıkınırcasına Yeme Bozukluğu)</strong></p>
-                    <p style="margin-bottom: 1.5rem; line-height: 1.8; color: #666;">Bu anoreksiya ve bulimiyadan farklı olarak aç bırakmanın aksine yemek yeme davranışını durduramamadır. Kişinin kısa sürede normalden çok daha fazla yemek tüketmesi ve bu sırada kontrolünü kaybettiğini hissetmesidir. Kişi kendisini yemek yemekten alıkoyamaz ve doyduğu halde hala daha durmaksızın yemeye devam eder. Bulimiyadan farklı olarak telafi davranışları görülmez. Kontrolsüz kilo alımına sebep olmaktadır.</p>
-                    
-                    <h3 style="font-size: 1.3rem; margin: 2rem 0 1rem; font-weight: 500;">Yeme Bozukluklarının Belirtileri</h3>
-                    <ul style="margin-bottom: 1.5rem; padding-left: 1.5rem; color: #666; line-height: 1.8;">
-                        <li>Yemek ve kilo ile aşırı meşgul olma</li>
-                        <li>Sürekli diyet yapma düşüncesi</li>
-                        <li>Beden görünümüyle ilgili yoğun kaygı</li>
-                        <li>Suçluluk hissiyle yeme davranışı</li>
-                        <li>Sosyal ortamlarda yemek yemekten kaçınma</li>
-                        <li>Hızlı kilo değişimleri</li>
-                    </ul>
-                    
-                    <h3 style="font-size: 1.3rem; margin: 2rem 0 1rem; font-weight: 500;">Ne Zaman Destek Alınmalıdır?</h3>
-                    <p style="margin-bottom: 1.5rem; line-height: 1.8; color: #666;">Yeme davranışları kişinin günlük yaşamını, fiziksel sağlığını veya ruhsal iyilik halini etkileymeye başladığında profesyonel destek almak önemlidir. Erken dönemde alınan psikolojik destek bu durumu daha fazla ilerlemeden durdurulabilir iyileşme sürecini olumlu yönde etkileyebilir.</p>
-                    
-                    <h3 style="font-size: 1.3rem; margin: 2rem 0 1rem; font-weight: 500;">Sonuç</h3>
-                    <p style="margin-bottom: 1.5rem; line-height: 1.8; color: #666;">Yeme davranışı hayatımızın vazgeçilmez bir parçasıdır. Bu derece hayatımızın önemli bir parçası olan davranışta görülen bozukluklar insanı birçok alanda olumsuz etkiler. Yeme bozuklukları yalnızca yemekle ilgili bir problem değildir. Çoğu zaman kişinin duygusal dünyası, stresle baş etme biçimi ve kendilik algısıyla yakından ilişkilidir. Bu nedenle tedavi sürecinde hem fiziksel hem de psikolojik ihtiyaçların birlikte ele alınması önem taşır. Şunun önemini unutmamalıyız ki sayılan belirtilerden birkaç tanesini bile görmeniz durumunda destek almanız uzun vadede sizi olumsuz etkilerden koruyabilir.</p>
-                    
-                    <p style="margin-top: 2rem; font-weight: 500; color: #1a1a1a; text-align: right;">Belkıs ALTINDAĞ</p>
-                `
-            },
-            mindfulness: {
-                title: 'Mindfulness: The Art of Living in the Now',
-                category: 'Mindfulness',
-                date: 'Jan 15, 2026',
-                content: `
-                    <p style="margin-bottom: 1.5rem; line-height: 1.8; color: #666;">Mindfulness or awareness meditation has gained an important place in both scientific research and daily life practices in recent years.</p>
-                    <h3 style="font-size: 1.3rem; margin: 2rem 0 1rem; font-weight: 500;">What is Mindfulness?</h3>
-                    <p style="margin-bottom: 1.5rem; line-height: 1.8; color: #666;">Mindfulness is the state of being aware and focusing on the present moment in a non-judgmental way.</p>
-                    <h3 style="font-size: 1.3rem; margin: 2rem 0 1rem; font-weight: 500;">Scientific Benefits</h3>
-                    <p style="margin-bottom: 1.5rem; line-height: 1.8; color: #666;">Research shows that regular mindfulness practice reduces stress levels and improves emotional regulation.</p>
-                `
-            },
-            bilissel: {
-                title: 'Cognitive Distortions and Thought Patterns',
-                category: 'Cognitive Psychology',
-                date: 'Jan 12, 2026',
-                content: `
-                    <p style="margin-bottom: 1.5rem; line-height: 1.8; color: #666;">Cognitive distortions are systematic thinking errors that cause us to misinterpret reality.</p>
-                    <h3 style="font-size: 1.3rem; margin: 2rem 0 1rem; font-weight: 500;">Common Distortions</h3>
-                    <p style="margin-bottom: 1.5rem; line-height: 1.8; color: #666;">Black-and-white thinking, overgeneralization, and catastrophizing are among the most common distortions.</p>
-                `
-            },
-            gelisim: {
-                title: 'Personal Growth: Discover Your Potential',
-                category: 'Developmental Psychology',
-                date: 'Jan 8, 2026',
-                content: `
-                    <p style="margin-bottom: 1.5rem; line-height: 1.8; color: #666;">Personal development is a process of continuous learning. Maslow's hierarchy of needs can guide us on this journey.</p>
-                `
-            },
-            baglanma: {
-                title: 'Attachment Styles and Relationships',
-                category: 'Relationships',
-                date: 'Jan 5, 2026',
-                content: `
-                    <p style="margin-bottom: 1.5rem; line-height: 1.8; color: #666;">Attachment theory explains how relationships with caregivers in childhood shape our adult connections.</p>
-                `
-            },
-            motivasyon: {
-                title: 'Psychology of Motivation: Secrets of Action',
-                category: 'Motivation',
-                date: 'Jan 2, 2026',
-                content: `
-                    <p style="margin-bottom: 1.5rem; line-height: 1.8; color: #666;">Motivation is the power that moves and directs our behaviors. Understanding internal and external motivation is key.</p>
-                `
-            },
-            duygu: {
-                title: 'Emotion Regulation Skills',
-                category: 'Emotional Health',
-                date: 'Dec 30, 2025',
-                content: `
-                    <p style="margin-bottom: 1.5rem; line-height: 1.8; color: #666;">Emotion regulation is the ability to experience and express our emotions in a healthy way.</p>
-                `
-            }
-        };
+<h3 style="font-size: 1.3rem; margin: 2rem 0 1rem; font-weight: 500;">Düzensiz Bağlanma: Yakınlık yaklaşınca korkmak, uzaklaşınca acımak</h3>
+<p style="margin-bottom: 1.5rem; line-height: 1.8; color: #666;">Düzensiz bağlanan bireyler için ilişkiler çoğu zaman kafa karıştırıcı gelir. Yakın ilişkiler hem ilgi çekicidir hem de korkutucudur. Beyin yakınlığı hem güvenli alan hem de tehlikeli bölge gibi hisseder; bu yüzden hızla panik atak, ani öfke gibi tepkiler görülebilir. İlişkilerde her zaman en ufak noktayı bile kontrol eden bölgede yer almak isterler. Tipik davranış olarak çok hızlı bağlanıp çok hızlı koparlar. Bireyler çocuklukta aniden değişen ebeveyn tepkilerine ve duygusal istikrarsızlıklara maruz kalırlar; bu yıllarda yaşadıkları istismar, ihmal ve travmalar sonucunda bağlanma stilleri şekillenir. Bireyler yakınlığı hem güven hem tehlike olarak algıladıkları için romantik ilişkilerde partner yaklaşınca savunmaya geçebilir, uzaklaşınca ise panik olabilirler. Bu kadar bağlanmanın kaybetmeyi getireceğini düşündükleri için bağlanma–korku–uzlaşma döngüsüne girerler. Dışarıdan nasıl görünürlerse görünsünler içlerinde çok büyük bir çatışma yaşarlar. “Gerçekten beni seviyor mu?”, “Bir gün giderse ne yaparım?” gibi kaygılı sorular, güveni istemelerine rağmen uzaklaşmalarına sebep olur.</p>
+<p style="margin-bottom: 1.5rem; line-height: 1.8; color: #666;"><strong>Arkadaşlık ilişkilerinde:</strong> “Yakın olayım ama çok da yakın olursak kontrol bende olmaz.” diye düşünürler. Kontrol mekanizmasının ellerinde olması onlar için önemlidir. Bu yüzden ilk başlarda fazla yakınlık ve paylaşım, sonrasındaysa uzaklaşma görülebilir; bunun nedeni yakınlık arttıkça içsel alarmın devreye girmesidir. İncineceğini düşünerek bazı paylaşımlardan kaçınabilirler ve arkadaşlık ilişkilerinde araya bir duvar örebilirler.</p>
+<p style="margin-bottom: 1.5rem; line-height: 1.8; color: #666;"><strong>Aile ilişkilerinde:</strong> Çocukken öğrendikleri korku–yakınlık karışımını yetişkinlikte de sürdürme eğilimindedirler. Hem onay almak isteyip sonra bu istekten rahatsızlık duyabilirler. Aile ortamındaki roller onlar için karışık ve belirsiz olabilir ve aile bireyleri tarafından kolayca tetiklenebilirler.</p>
 
-        function openArticle(articleId) {
-            const article = articles[articleId];
-            const modal = document.getElementById('articleModal');
-            const content = document.getElementById('articleContent');
-            
-            content.innerHTML = `
-                <span style="display: inline-block; color: #666; font-size: 0.8rem; margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.5px;">${article.category}</span>
-                <h1 style="font-size: 2rem; margin-bottom: 0.5rem; font-weight: 500; letter-spacing: -0.5px; line-height: 1.3;">${article.title}</h1>
-                <p style="color: #999; font-size: 0.9rem; margin-bottom: 2rem;">${article.date}</p>
-                ${article.content}
-            `;
-            
-            modal.style.display = 'block';
-            document.body.style.overflow = 'hidden';
-        }
+<h3 style="font-size: 1.3rem; margin: 2rem 0 1rem; font-weight: 500;">Güvenli Bağlanma: Yakınlıkta dengeyi yakalamak</h3>
+<p style="margin-bottom: 1.5rem; line-height: 1.8; color: #666;">Güvenli bağlanan kişiler yakınlık halinde rahattırlar. Duygularını açık bir şekilde ifade edebilir, gerektiğinde alan yaratmayı bilirler. İlişki içinde tutarlı ve istikrarlıdırlar. Karşı tarafın desteğini gerektiğinde kabul ederler ve ilişkide hem bağımsızlık hem de bağlılığı aynı anda sürdürebilirler. Yakınlık esnasında tetikte değillerdir; güvenli hissettikleri için savunma ihtiyacı duymazlar. Öz-değer duygularına dikkat eder, kendilerini ilişkide kaybetmezler.</p>
+<p style="margin-bottom: 1.5rem; line-height: 1.8; color: #666;"><strong>Romantik ilişkilerde:</strong> Sorun çözme becerileri gelişmiştir; ne saldırma ne de kaçma eğilimindedirler. Durumu anlamaya ve çözmeye odaklı ilerlerler. Ani soğumalar, kopmalar veya gel–gitler yaşamazlar. Hem güven verirler hem de güven almayı doğal bulurlar. Sağlıklı sınırlar çizerler, karşı tarafın sınırlarına da saygı duyarlar. Terk edilme korkuları düşüktür, bu nedenle ilişkide panik değil sakinlik hâkimdir.</p>
+<p style="margin-bottom: 1.5rem; line-height: 1.8; color: #666;"><strong>Arkadaşlık ilişkilerinde:</strong> Yakınlık kurarken rahat olur, kendi sınırlarını korur ve tutarlı davranır. Bir sorun olduğunda kaçmak yerine konuşarak çözmeyi tercih ederler. Empati kurar fakat kendilerini tüketmezler; hem destek verir hem de destek almayı doğal bulurlar. Arkadaşlık ilişkilerinde kıskançlık, dışlanma korkusu veya gel–git davranışları pek görülmez ve grup ortamlarında da genellikle uyumlu ve huzurlu hissederler.</p>
+<p style="margin-bottom: 1.5rem; line-height: 1.8; color: #666;"><strong>Aile içindeyse:</strong> Sağlıklı ve dengeli bir bağ kurar, sevgiyi almakta ve vermekte rahat eder. Sınır koymaları gerektiğinde suçluluk yaşamadan kendilerini ifade edebilirler. Tartışmalara sakin ve çözüm odaklı yaklaşırlar ve eleştirileri tehdit olarak algılamazlar. Aile ilişkilerinde hem bireyselliklerini korur hem de destek alıp vermeyi doğal bir süreç olarak görürler.</p>
 
-        function closeArticle() {
-            document.getElementById('articleModal').style.display = 'none';
-            document.body.style.overflow = 'auto';
-        }
+<p style="margin-top: 1.5rem; font-weight: 500; color: #1a1a1a; text-align: right; margin-bottom: 2rem;">Belkıs ALTINDAĞ</p>
 
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') {
-                closeArticle();
-            }
-        });
+<hr style="border: none; border-top: 1px solid #e5e5e5; margin: 2rem 0;">
 
-        document.getElementById('articleModal').addEventListener('click', function(e) {
-            if (e.target === this) {
-                closeArticle();
-            }
-        });
+<h3 style="font-size: 1.4rem; margin: 2rem 0 1rem; font-weight: 500; color: #ff6b9d;">Hangi Bağlanma Stiline Sahipsin?</h3>
+<p style="margin-bottom: 1.5rem; line-height: 1.8; color: #666;">Bu test, hangi bağlanma stiline daha yakın olduğunuzu keşfetmenize yardımcı olur. Her soruda kendinize en uygun cevabı işaretleyin. Tüm soruları yanıtladıktan sonra hangi harften daha çok işaretlediğinize bakın. En çok işaretlenen seçenek, sizin bağlanma stilinize en yakın olanıdır. İki veya üç seçenek yakınsa birden fazla stilin özelliklerini taşıyor olabilirsiniz.</p>
 
-        const closeBtn = document.querySelector('#articleModal button');
-        closeBtn.addEventListener('mouseenter', function() {
-            this.style.background = '#ff6b9d';
-            this.style.color = 'white';
-            this.style.transform = 'rotate(90deg) scale(1.1)';
-        });
+<div style="margin-bottom: 1.5rem; color: #666;">
+<p style="font-weight: 500; color: #1a1a1a; margin-bottom: 0.5rem;">1. Yakın ilişkilerde en çok ne hissedersiniz?</p>
+<div style="padding-left: 1rem; line-height: 1.8;">
+A) Sevilsem bile bir gün terk edileceğim korkusu<br>
+B) Çok fazla yakınlık beni bunaltır<br>
+C) Hem yakınlığı hem bağımsızlığı dengede hissederim<br>
+D) Bir yakınlaşıp bir uzaklaşma isteği
+</div>
+</div>
 
-        closeBtn.addEventListener('mouseleave', function() {
-            this.style.background = 'white';
-            this.style.color = '#ff6b9d';
-            this.style.transform = 'rotate(0deg) scale(1)';
-        });
-    </script>
+<div style="margin-bottom: 1.5rem; color: #666;">
+<p style="font-weight: 500; color: #1a1a1a; margin-bottom: 0.5rem;">2. Partneriniz mesajınıza geç cevap verdiğinde ne düşünürsünüz?</p>
+<div style="padding-left: 1rem; line-height: 1.8;">
+A) Bir şey oldu, bana kızdı galiba<br>
+B) Sorun değil, herkesin kendi alanı var<br>
+C) Birazdan cevap verir, telaşa gerek yok<br>
+D) Hem merak eder hem de aramaya çekinirim
+</div>
+</div>
+
+<div style="margin-bottom: 1.5rem; color: #666;">
+<p style="font-weight: 500; color: #1a1a1a; margin-bottom: 0.5rem;">3. Birine duygularınızı açmanız gerekirse…</p>
+<div style="padding-left: 1rem; line-height: 1.8;">
+A) Çok heyecanlanırım, yanlış anlaşılmaktan korkarım<br>
+B) Mümkünse açmam, içime atarım<br>
+C) Rahatça ifade ederim<br>
+D) Açsam da sonra pişman olabilirim
+</div>
+</div>
+
+<div style="margin-bottom: 1.5rem; color: #666;">
+<p style="font-weight: 500; color: #1a1a1a; margin-bottom: 0.5rem;">4. İlişkide tartışma çıktığında ne yaparsınız?</p>
+<div style="padding-left: 1rem; line-height: 1.8;">
+A) Hemen çözülsün isterim, yoksa kaybedecekmişim gibi hissederim<br>
+B) Uzaklaşır, kendime kapanırım<br>
+C) Sakinleşip konuşmaya çalışırım<br>
+D) Ya çok bağlanırım ya tamamen koparım
+</div>
+</div>
+
+<div style="margin-bottom: 1.5rem; color: #666;">
+<p style="font-weight: 500; color: #1a1a1a; margin-bottom: 0.5rem;">5. Sevgi gösterilince nasıl hissedersiniz?</p>
+<div style="padding-left: 1rem; line-height: 1.8;">
+A) Çok mutlu olurum ama kalıcı mı diye düşünürüm<br>
+B) Fazla gelirse gerilirim<br>
+C) Güvende ve değerli hissederim<br>
+D) Bazen mutlu olurum, bazen rahatsızlık duyarım
+</div>
+</div>
+
+<div style="margin-bottom: 1.5rem; color: #666;">
+<p style="font-weight: 500; color: #1a1a1a; margin-bottom: 0.5rem;">6. İlişkide en büyük korkunuz nedir?</p>
+<div style="padding-left: 1rem; line-height: 1.8;">
+A) Terk edilmek<br>
+B) Kontrolü kaybetmek ve kırılgan olmak<br>
+C) Sağlıklı iletişimin bozulması<br>
+D) Hem bağlanmak hem de bağlanamamak
+</div>
+</div>
+
+<div style="margin-bottom: 1.5rem; color: #666;">
+<p style="font-weight: 500; color: #1a1a1a; margin-bottom: 0.5rem;">7. Bir ilişkiye başlarken yaklaşımınız nasıldır?</p>
+<div style="padding-left: 1rem; line-height: 1.8;">
+A) Çok çabuk bağlanırım<br>
+B) Mesafeli ve kontrollü yaklaşırım<br>
+C) Tanımak için zaman veririm, doğal ilerler<br>
+D) Yaklaşmak isterken aynı anda geri çekilirim
+</div>
+</div>
+
+<div style="margin-bottom: 1.5rem; color: #666;">
+<p style="font-weight: 500; color: #1a1a1a; margin-bottom: 0.5rem;">8. Birine ihtiyaç duyduğunuzda…</p>
+<div style="padding-left: 1rem; line-height: 1.8;">
+A) Yanımda olmazsa üzülür, hatta paniklerim<br>
+B) Tek başıma hallederim, ihtiyaç duymak hoşuma gitmez<br>
+C) Gerekirse destek isterim, bunda sorun görmem<br>
+D) İsterim ama söylemekten çekinirim
+</div>
+</div>
+
+<div style="margin-bottom: 1.5rem; color: #666;">
+<p style="font-weight: 500; color: #1a1a1a; margin-bottom: 0.5rem;">9. Bir arkadaşınız sizi kırdığında tepkiniz ne olur?</p>
+<div style="padding-left: 1rem; line-height: 1.8;">
+A) Hemen özür dileyip tekrar yakın olmaya çalışırım<br>
+B) Bir süre mesafe koyar, içime atarım<br>
+C) Durumu konuşur ve çözmeye çalışırım<br>
+D) Kırgınlık hissederim ama bir yandan tekrar yakınlaşmak isterim
+</div>
+</div>
+
+<div style="margin-bottom: 1.5rem; color: #666;">
+<p style="font-weight: 500; color: #1a1a1a; margin-bottom: 0.5rem;">10. Yakın birinden ayrıldığınızda…</p>
+<div style="padding-left: 1rem; line-height: 1.8;">
+A) Çok üzülür, hemen tekrar bağlanmak isterim<br>
+B) Üzüntüyü içine atar, kendi başıma toparlanırım<br>
+C) Hislerini yaşar ve dengede kalırım<br>
+D) Duygularım karışır, hem üzülür hem uzaklaşmak isterim
+</div>
+</div>
+
+<div style="margin-bottom: 1.5rem; color: #666;">
+<p style="font-weight: 500; color: #1a1a1a; margin-bottom: 0.5rem;">11. Bir etkinlikte lider olarak seçildiğinizde ne hissedersiniz?</p>
+<div style="padding-left: 1rem; line-height: 1.8;">
+A) Baskı altında kaygılanırım ve herkesin onayını ararım.<br>
+B) Mesafemi korur, sorumluluğu sınırlı kabul ederim.<br>
+C) Rahat ve dengeli bir şekilde yönetirim.<br>
+D) Hem lider olmak isterim hem de geri çekilmek isterim; karışık hissederim.
+</div>
+</div>
+
+<div style="margin-bottom: 1.5rem; color: #666;">
+<p style="font-weight: 500; color: #1a1a1a; margin-bottom: 0.5rem;">12. Sevgi gösterme sıklığınız hangisine daha yakın?</p>
+<div style="padding-left: 1rem; line-height: 1.8;">
+A) Çok gösteriririm; karşı taraf da göstersin isterim.<br>
+B) Daha sınırlı gösteririm; abartı beni boğar.<br>
+C) Dengeli ve doğal; hissettikçe ifade ederim.<br>
+D) Bazen fazla, bazen hiç—duyguma göre değişir.
+</div>
+</div>
+
+<div style="margin-bottom: 1.5rem; color: #666;">
+<p style="font-weight: 500; color: #1a1a1a; margin-bottom: 0.5rem;">13. Ailen sana duygusal bir konuda destek vermek istediğinde tepkin nasıldır?</p>
+<div style="padding-left: 1rem; line-height: 1.8;">
+A) Hemen anlatırım, yalnız kalmak istemem.<br>
+B) Rahatsız olurum; duygusal destek almak bana zor gelir.<br>
+C) Dinlerim, gerekirse paylaşırım; dengeliyimdir.<br>
+D) Bazen sarılırım, bazen uzaklaşırım; net değilim.
+</div>
+</div>
+
+<div style="margin-bottom: 1.5rem; color: #666;">
+<p style="font-weight: 500; color: #1a1a1a; margin-bottom: 0.5rem;">14. Arkadaş grubunda bir tartışma çıktığında senin ilk refleksin nedir?</p>
+<div style="padding-left: 1rem; line-height: 1.8;">
+A) Hemen taraf tutarım; kaybetmekten korkarım.<br>
+B) Mesafemi korur ve müdahil olmam.<br>
+C) Sakin kalır, durumu çözmeye çalışırım.<br>
+D) Karışırım; bazen tartışmaya girer, bazen çekilirim.
+</div>
+</div>
+
+<div style="margin-bottom: 1.5rem; color: #666;">
+<p style="font-weight: 500; color: #1a1a1a; margin-bottom: 0.5rem;">15. Uzun süre yalnız kaldığınızda kendinizi nasıl hissedersiniz?</p>
+<div style="padding-left: 1rem; line-height: 1.8;">
+A) Endişelenir ve sevdiklerim yanımda değilse kaygılanırım.<br>
+B) Rahat ederim; yalnız kalmak hoşuma gider ve kendime vakit ayırırım.<br>
+C) Dengeli hissederim; yalnız kalmak bana iyi gelir ama destek almayı da isterim.<br>
+D) Hem yalnız kalmak isterim hem de yakın birinin yanımda olmasını isterim; hislerim karışık olur..
+</div>
+</div>
+
+<div style="margin-bottom: 1.5rem; color: #666;">
+<p style="font-weight: 500; color: #1a1a1a; margin-bottom: 0.5rem;">16. Bir etkinlikte yeni insanlarla tanışmanız gerektiğinde tepkiniz nasıldır?</p>
+<div style="padding-left: 1rem; line-height: 1.8;">
+A) Hemen bağlanmaya çalışırım; kabul görmezsem endişelenirim.<br>
+B) Mesafemi korur, önce ortamı gözlemlerim.<br>
+C) Rahatça tanışırım, zamanla yakınlaşırım.<br>
+D) Bazı anlarda hızlı yakınlaşırım, bazı anlarda çekilirim.
+</div>
+</div>
+
+<div style="margin-bottom: 1.5rem; color: #666;">
+<p style="font-weight: 500; color: #1a1a1a; margin-bottom: 0.5rem;">17. Yakın biriniz duygusal bir sır paylaştığında tepkiniz nasıldır?</p>
+<div style="padding-left: 1rem; line-height: 1.8;">
+A) Onu kaybetmekten korkarım; hemen kendimi açıp karşılık veririm.<br>
+B) Duygularımı gizlerim; fazla samimiyet beni rahatsız eder.<br>
+C) Dinlerim ve gerektiğinde samimi yanıt veririm; dengeliyimdir.<br>
+D) Hem samimi yanıt verir hem de geri çekilmek isterim; hislerim karışıktır.
+</div>
+</div>
+
+<div style="margin-bottom: 1.5rem; color: #666;">
+<p style="font-weight: 500; color: #1a1a1a; margin-bottom: 0.5rem;">18. Bir grup etkinliğinde fikirleriniz çeliştiğinde ne yaparsınız?</p>
+<div style="padding-left: 1rem; line-height: 1.8;">
+A) Hemen kaygılanır, yanlış anlaşılmaktan korkarım ve onay ararım.<br>
+B) Mesafemi korur, kendi duruşumu sessizce sürdürürüm.<br>
+C) Görüşlerimi dengeli ve sakin bir şekilde paylaşırım.<br>
+D) Bazen tartışmaya girer, bazen geri çekilirim; karışık hissederim.
+</div>
+</div>
+
+<div style="margin-bottom: 1.5rem; color: #666;">
+<p style="font-weight: 500; color: #1a1a1a; margin-bottom: 0.5rem;">19. Gelecekle ilgili planlarınızda sevdiklerinizin rolü ne kadar önemlidir?</p>
+<div style="padding-left: 1rem; line-height: 1.8;">
+A) Onayları olmazsa kaygılanırım; kendimi güvende hissetmem.<br>
+B) Kendi planlarım ön plandadır; başkalarının görüşleri sınırlı etkiler.<br>
+C) Dikkate alırım, ama kendi kararlarımı da dengede tutarım.<br>
+D) Bazen onay isterim, bazen kendi başıma hareket ederim; değişken.
+</div>
+</div>
+
+<div style="margin-bottom: 1.5rem; color: #666;">
+<p style="font-weight: 500; color: #1a1a1a; margin-bottom: 0.5rem;">20. Zor bir duygusal karar verirken iç sesiniz size ne söyler?</p>
+<div style="padding-left: 1rem; line-height: 1.8;">
+A) “Acaba doğru mu yapıyorum? Kaybedersem ne olur?”<br>
+B) “Kendi başıma hallederim; fazla düşünmeye gerek yok.”<br>
+C) “Düşünerek ve danışarak en iyisini yaparım.”<br>
+D) “Hem çekinmek hem cesur olmak istiyorum; kararım karışık.”
+</div>
+</div>
+
+<p style="margin-top: 1.5rem; line-height: 1.8; color: #1a1a1a; font-weight: 500;">Her şık için toplama yapın:</p>
+<p style="color: #666; line-height: 1.8;">
+A’lar → Kaygılı Bağlanma<br>
+B’ler → Kaçıngan Bağlanma<br>
+C’ler → Güvenli Bağlanma<br>
+D’ler → Karmaşık / Düzensiz Bağlanma<br>
+<strong>En yüksek puan → baskın bağlanma stiliniz</strong>
+</p>
+
+<hr style="border: none; border-top: 1px solid #e5e5e5; margin: 2rem 0;">
+
+<h3 style="font-size: 1.1rem; margin: 1.5rem 0 0.8rem; font-weight: 500; color: #1a1a1a;">Kaynakça</h3>
+<p style="font-size: 0.85rem; color: #888; line-height: 1.6; margin-bottom: 0.5rem;">Can, F. (2025). Bağlanma stilleri, çatışma yönetimi ve ilişki bağlılığı: Yatırım modeli çerçevesinde bir inceleme. DTCF Dergisi, 65(1), 559–580. https://doi.org/10.33171/dtcfjournal.2025.65.1.23</p>
+<p style="font-size: 0.85rem; color: #888; line-height: 1.6; margin-bottom: 0.5rem;">Özer, M., & Müezzin, E. E. (2024). Romantik ilişkilerde bağlanma stilleri ile algılanan ilişki doyumu arasındaki ilişkinin incelenmesi. Afyon Kocatepe Üniversitesi Sosyal Bilimler Dergisi, 26(4), 1871–1880.</p>
+<p style="font-size: 0.85rem; color: #888; line-height: 1.6; margin-bottom: 0.5rem;">Ainsworth, M. D. S., Blehar, M. C., Waters, E., & Wall, S. (1978). Patterns of attachment: A psychological study of the strange situation. Hillsdale, NJ: Lawrence Erlbaum.</p>
+<p style="font-size: 0.85rem; color: #888; line-height: 1.6; margin-bottom: 0.5rem;">Bartholomew, K., & Horowitz, L. M. (1991). Attachment styles among young adults: A test of a four-category model. Journal of Personality and Social Psychology, 61(2), 226–244. https://doi.org/10.1037/0022-3514.61.2.226</p>
+<p style="font-size: 0.85rem; color: #888; line-height: 1.6; margin-bottom: 0.5rem;">Bowlby, J. (1988). A secure base: Parent-child attachment and healthy human development. New York, NY: Basic Books.</p>
+<p style="font-size: 0.85rem; color: #888; line-height: 1.6; margin-bottom: 0.5rem;">Brennan, K. A., Clark, C. L., & Shaver, P. R. (1998). Self-report measurement of adult attachment: An integrative overview. In J. A. Simpson & W. S. Rholes (Eds.), Attachment theory and close relationships (pp. 46–76). New York, NY: Guilford Press.</p>
+<p style="font-size: 0.85rem; color: #888; line-height: 1.6; margin-bottom: 0.5rem;">Heller, R. (2016). Bağlanma: Aşkı bulmanın ve korumanın bilimsel yolları [Attachment: The science of finding and keeping love]. İstanbul, Türkiye: Optimist Yayınları.</p>
+<p style="font-size: 0.85rem; color: #888; line-height: 1.6; margin-bottom: 0.5rem;">Karakaş, S. (2015). Psikoloji sözlüğü (2. basım). Ankara, Türkiye: Nobel Akademik Yayıncılık.</p>
+<p style="font-size: 0.85rem; color: #888; line-height: 1.6; margin-bottom: 0.5rem;">Wikipedia. (2025, Ekim 1). Bağlanma stilleri. https://tr.wikipedia.org/wiki/Bağlanma_stilleri</p>
+`
+},
+"yeme-bozukluklari": {
+title: 'Yeme Davranışlarının Psikolojik Boyutu: Yemekten Daha Fazlası',
+category: 'Eating Disorders',
+date: 'Jun 24, 2026',
+content: `
+<p style="margin-bottom: 1.5rem; line-height: 1.8; color: #666;">Yemek yemek insanın en önemli ve hayati ihtiyaçlarındandır. Ancak yemek, çoğu zaman yalnızca açlığımızı gidermekten ibaret değildir. Bazen duygu durumumuza bağlı olarak kendimizi mutlu hissettiğimizde bir şeyler yemek isterken bazen de stresli, üzgün ya da kaygılı olduğumuz zamanlarda yemeğe yönelebiliriz. Bu nedenle yeme davranışımız, duygularımız ve günlük yaşantımızla yakından ilişkilidir.</p>
+<p style="margin-bottom: 1.5rem; line-height: 1.8; color: #666;">Çoğu insan zaman zaman yeme alışkanlıklarında değişiklikler yaşayabilir. Günümüzde sosyal medyada karşılaştığımız mükemmel beden algısı insanlara sanki bir kalıba uymalıymış ve sosyal medyada gördüğü insanlar gibi olmalıymış hissi yaratabiliyor ve yanlış algılara sebep olabiliyor. Bazen insanın çevresinden duyduğu ‘kilo almışsın’ ya da ‘çok zayıflamışsın’ gibi yorumlar insan algısını tehlikeli bir şekilde etkileyebiliyor. İnsan kimi zaman birinden gördüğü bir diyet programını ya da kendi bedeninin neye ne oranda ihtiyacı olduğunu bilmeden kendi kendine diyetler uygulayabiliyor. Bunlar gibi risk faktörlerinin de etkisiyle yemekle ilgili düşünceler günün büyük bir kısmını kaplamaya başladığında, kişinin bedeniyle ilgili kaygıları arttığında veya yeme davranışları günlük yaşamını olumsuz etkilemeye başladığında bu durum bir yeme bozukluğunun işareti olabilir.</p>
+
+<h3 style="font-size: 1.3rem; margin: 2rem 0 1rem; font-weight: 500;">Yeme Bozuklukları Nedir?</h3>
+<p style="margin-bottom: 1.5rem; line-height: 1.8; color: #666;">Yeme bozuklukları, insanın yeme alışkanlıklarını, yemeğe karşı bakış açısını, beden algısı ve duygu durumunu büyük ölçüde etkileyen psikolojik rahatsızlıklardır. This durum yalnızca yeme alışkanlıklarıyla sınırlı değildir; kişinin kendisiyle, bedeniyle ve duygularıyla kurduğu ilişkiyi de etkileyebilir.</p>
+
+<h3 style="font-size: 1.3rem; margin: 2rem 0 1rem; font-weight: 500;">Yeme Bozuklukları Neden Ortaya Çıkar?</h3>
+<p style="margin-bottom: 1.5rem; line-height: 1.8; color: #666;">Yeme bozukluklarının aslında tek bir nedeni yoktur. Düşük benlik saygısı, toplumsal güzellik algıları, yatkınlık, aile dinamikleri, travmatik yaşantılar ve yoğun stres gibi birçok faktör bu süreçte rol oynayabilir.</p>
+
+<h3 style="font-size: 1.3rem; margin: 2rem 0 1rem; font-weight: 500;">En Yaygın Yeme Bozuklukları</h3>
+<p style="margin-bottom: 1rem; line-height: 1.8; color: #1a1a1a;"><strong>1) Anorexia Nervosa</strong></p>
+<p style="margin-bottom: 1.5rem; line-height: 1.8; color: #666;">Anoreksiya yeme bozukluklarının arasında en riskli olan bozukluktur. Kişi ciddi bir kilo alma korkusuna sahiptir ve yediği yiyeceklerin kilo aldıracağı korkusuyla yemek tüketimini ciddi anlamda kısıtlar. Çok zayıf olmasına rağmen aynaya baktığında kendisini hala kilolu olarak görür. Yediği her yiyeceğin kalorisini hesaplama, yediği yiyecekten kısma, kendisnu uzun süreli aç bırakma, sürekli tartıya çıkma, takıntılı şekilde diyet ve kilo hakkında düşünmek gibi davranışları bulunmakta. İlerlerlemesi durumunda organlara zarar vermekte ve ölümcül sonuçlara yol açmaktadır.</p>
+
+<p style="margin-bottom: 1rem; line-height: 1.8; color: #1a1a1a;"><strong>2) Bulimia Nervosa</strong></p>
+<p style="margin-bottom: 1.5rem; line-height: 1.8; color: #666;">Bu kişiler anoreksiyada görülenin aksine genelde normal bir kiloya sahiplerdir. Belirli atak zamanlarında çok yemek yeme davranışı gösterirler. Kendilerini durduramadan yemek yerler fakat bunun psikolojik olarak geri dönüşü genelde ağır olur. Tekrarlayan aşırı yeme ataklarının ardından duydukları pişmanlık sebebiyle kusma, aşırı egzersiz yapma veya uzun süre aç kalma gibi telafi davranışlarının görülür. Bu pişmanlık onlara kendilerini kısıtlayacak, aç bırakacak kadar etkide bulunur ve psikolojik olarak çok suçlu hissederler. Başta bilinçli şekilde kusma ve diğer suçluluk davranışları gibi durumlar zamanla organlarına ciddi ve kalıcı hasarlar verebilmektedir.</p>
+
+<p style="margin-bottom: 1rem; line-height: 1.8; color: #1a1a1a;"><strong>3) Binge Eating Disorder (Tıkınırcasına Yeme Bozukluğu)</strong></p>
+<p style="margin-bottom: 1.5rem; line-height: 1.8; color: #666;">Bu anoreksiya ve bulimiyadan farklı olarak aç bırakmanın aksine yemek yeme davranışını durduramamadır. Kişinin kısa sürede normalden çok daha fazla yemek tüketmesi ve bu sırada kontrolünü kaybettiğini hissetmesidir. Kişi kendisini yemek yemekten alıkoyamaz ve doyduğu halde hala daha durmaksızın yemeye devam eder. Bulimiyadan farklı olarak telafi davranışları görülmez. Kontrolsüz kilo alımına sebep olmaktadır.</p>
+
+<h3 style="font-size: 1.3rem; margin: 2rem 0 1rem; font-weight: 500;">Yeme Bozukluklarının Belirtileri</h3>
+<ul style="margin-bottom: 1.5rem; padding-left: 1.5rem; color: #666; line-height: 1.8;">
+<li>Yemek ve kilo ile aşırı meşgul olma</li>
+<li>Sürekli diyet yapma düşüncesi</li>
+<li>Beden görünümüyle ilgili yoğun kaygı</li>
+<li>Suçluluk hissiyle yeme davranışı</li>
+<li>Sosyal ortamlarda yemek yemekten kaçınma</li>
+<li>Hızlı kilo değişimleri</li>
+</ul>
+
+<h3 style="font-size: 1.3rem; margin: 2rem 0 1rem; font-weight: 500;">Ne Zaman Destek Alınmalıdır?</h3>
+<p style="margin-bottom: 1.5rem; line-height: 1.8; color: #666;">Yeme davranışları kişinin günlük yaşamını, fiziksel sağlığını veya ruhsal iyilik halini etkileymeye başladığında profesyonel destek almak önemlidir. Erken dönemde alınan psikolojik destek bu durumu daha fazla ilerlemeden durdurulabilir iyileşme sürecini olumlu yönde etkileyebilir.</p>
+
+<h3 style="font-size: 1.3rem; margin: 2rem 0 1rem; font-weight: 500;">Sonuç</h3>
+<p style="margin-bottom: 1.5rem; line-height: 1.8; color: #666;">Yeme davranışı hayatımızın vazgeçilmez bir parçasıdır. Bu derece hayatımızın önemli bir parçası olan davranışta görülen bozukluklar insanı birçok alanda olumsuz etkiler. Yeme bozuklukları yalnızca yemekle ilgili bir problem değildir. Çoğu zaman kişinin duygusal dünyası, stresle baş etme biçimi ve kendilik algısıyla yakından ilişkilidir. Bu nedenle tedavi sürecinde hem fiziksel hem de psikolojik ihtiyaçların birlikte ele alınması önem taşır. Şunun önemini unutmamalıyız ki sayılan belirtilerden birkaç tanesini bile görmeniz durumunda destek almanız uzun vadede sizi olumsuz etkilerden koruyabilir.</p>
+
+<p style="margin-top: 2rem; font-weight: 500; color: #1a1a1a; text-align: right;">Belkıs ALTINDAĞ</p>
+`
+},
+"overthinking": {
+title: 'Overthinking: Zihnimiz Neden Susmaz?',
+category: 'Overthinking',
+date: 'Jun 26, 2026',
+content: `
+<p style="margin-bottom: 1.5rem; line-height: 1.8; color: #666;">Hepimiz zaman zaman bir konu hakkında uzun uzun düşünürüz değil mi? Eminim ki birçoğumuzun hatta günümüzün en yaygın problemlerinden biridir, bir şeyi aşırı ve tekrar tekrar düşünmek. Bir konu olur, kafanızda döner durur. Attığımız bir mesajın karşı taraf tarafından nasıl algılandığını düşünmek, önemli bir sınavda verdiğimiz cevabı düşünmek ya da gelecekle ilgili olası senaryolar kurmak oldukça normaldir. Ancak bazen düşünmek, çözüm üretmekten çıkıp günümüzün birçoğunu kaplayan bir aktiviteye dönüştüğünde, başka bir aktivite yapmaktan bile alıkoyup zihnimizi aşırı meşgul ettiğinde, bizi yoran bir döngüye dönüşebilir. İşte bu durum genellikle "overthinking" yani aşırı düşünme olarak adlandırılır.</p>
+<p style="margin-bottom: 1.5rem; line-height: 1.8; color: #666;">Birçoğumuzun yaşadığı bu durum, zihnin aynı konu etrafında dönüp durması ve bir türlü sonuca ulaşamaması şeklinde ortaya çıkar. Kişi aslında bir problemi çözmeye çalıştığını düşünür ancak çoğu zaman kendisini aynı düşüncelerin içinde kaybolmuş halde bulur.</p>
+
+<h3 style="font-size: 1.3rem; margin: 2rem 0 1rem; font-weight: 500;">Overthinking Nedir?</h3>
+<p style="margin-bottom: 1.5rem; line-height: 1.8; color: #666;">Overthinking, bir durumu, konuyu, olayı gereğinden fazla düşünmek ve bu düşüncelerden uzaklaşmakta/kurtulmakta zorlanmaktır. Bu süreçte kişi çoğu zaman çözüm üretmek yerine aynı ihtimalleri tekrar tekrar değerlendirmeye başlar. Aslında çözüme ulaşabileceğimizi sanırız, sanki ne kadar düşünürsem o kadar hakim olacağım bu konuya, çözüme ulaşacağım deriz. Ama aslında harcanan saatler, dakikaların ardından elimiz boş ve zihnimiz ile bedenimiz yorgundur.</p>
+<p style="margin-bottom: 1.5rem; line-height: 1.8; color: #666;">Bir örnek düşünelim. Birine bir mesaj gönderdiniz ve mesajınıza uzun süre cevap vermedi, ya da verse bile kısa cevap verdi, zihin konuşmaya başlar ;"Acaba yanlış bir şey mi söyledim?", "Bana kızdı mı?", "Beni yanlış mı anladı?" gibi düşünceler zihninizde peş peşe sıralanabilir. Bu düşünceler zihninizin içinde dönmeye başlar. Dakikalar içinde başlayan bu düşünce zinciri saatler boyunca devam edebilir.</p>
+
+<h3 style="font-size: 1.3rem; margin: 2rem 0 1rem; font-weight: 500;">Neden Bu Kadar Fazla Düşünüyoruz?</h3>
+<p style="margin-bottom: 1.5rem; line-height: 1.8; color: #666;">Bunun en başlı sebebi kontrolden gelir. Aslında beynimiz bizi korumaya çalışır. Bütün olası riskleri önceden fark etmek ve kötü sonuçları önlemek istemek aslında en başlı sebeptir. Ancak bazen bu koruma mekanizması fazla çalışabilir. Yaşamımızın ilerleyişindeki riskleri fark etmek ve onları kontrol etmeye çalışmak normaldir ama bu kontrolden çıktığında overthinking başlar. Fakat ne yazık ki her şey her zaman kontrolümüz altında değildir.</p>
+<p style="margin-bottom: 1.5rem; line-height: 1.8; color: #666;">Belirsizlikler, gelecek kaygısı, hata yapma korkusu, mükemmeliyetçilik ve düşük özgüven aşırı düşünme eğilimini artırabilir. Özellikle her şeyi kontrol altında tutmaya çalışan kişiler, kontrol edemedikleri durumlar karşısında daha fazla düşünmeye başlayabilirler.</p>
+
+<h3 style="font-size: 1.3rem; margin: 2rem 0 1rem; font-weight: 500;">Overthinking Nasıl Hissettirir?</h3>
+<p style="margin-bottom: 1.5rem; line-height: 1.8; color: #666;">Aşırı düşünme yalnızca zihinsel bir süreç değildir. Bir süre sonra kişinin günlük yaşamını da etkileyebilir. Kişiyi hem fiziksel hem de mental olarak yoran bir eylemdir.</p>
+<ul style="margin-bottom: 1.5rem; padding-left: 1.5rem; color: #666; line-height: 1.8;">
+<li>Sürekli aynı konuyu düşünmek</li>
+<li>Kendini zihinsel olarak yorgun hissetmek</li>
+<li>Karar vermekte zorlanmak</li>
+<li>Geçmişte yaşanan olayları tekrar tekrar gözden geçirmek</li>
+<li>Gelecekle ilgili olumsuz senaryolar kurmak</li>
+<li>Uykuya dalmakta zorlanmak</li>
+</ul>
+<p style="margin-bottom: 1.5rem; line-height: 1.8; color: #666;">Bu belirtiler zamanla kişinin enerjisini tüketebilir ve yaşamdan aldığı keyfi büyük ölçüde azaltabilir.</p>
+
+<h3 style="font-size: 1.3rem; margin: 2rem 0 1rem; font-weight: 500;">Düşünmek ve Aşırı Düşünmek Arasındaki Fark</h3>
+<p style="margin-bottom: 1.5rem; line-height: 1.8; color: #666;">Bu önemli bir farktır çünkü ‘düşünmek’ ile ‘aşırı düşünmek’ arasında ince bir fark vardır. Önce düşünmekten bahsedelim. Kişi hayatında yaşanan durum ve olayları algılar, yorumlar, gözden geçirir ve bunlar hakkında düşünür. Ama her bir konuya ayırdığı süre uzun değildir, gerekli miktarda olur. Hayat düzenimizde yorumlayışımıza göre risk faktörü olarak gördüğümüz şeyler vardır. Bu durumlar hakkında düşünüp önlem almak önemlidir. Ama bu düşünceler kaçınılmaz olduğunda, gün içerisinde beyninizi çok fazla meşgul ettiğinde, kontrol edemeyeceğiniz durumları bile kafanıza takmaya başladığınızda bu artık aşırı düşünme yani Overthinking’e yol açar.</p>
+<p style="margin-bottom: 1.5rem; line-height: 1.8; color: #666;">Düşünmek genellikle bir sonuca ulaşmamıza yardımcı olur. Bir konu hakkında bilgi toplar, değerlendirir ve karar veririz. Aşırı düşünmede ise kişi çoğu zaman aynı noktada dönüp durur.</p>
+<p style="margin-bottom: 1.5rem; line-height: 1.8; color: #666;">Kısacası düşünmek bizi ileri götürürken, aşırı düşünmek çoğu zaman olduğumuz yerde kalmamıza neden olur.</p>
+
+<h3 style="font-size: 1.3rem; margin: 2rem 0 1rem; font-weight: 500;">Overthinking ile Başa Çıkmak Mümkün Mü?</h3>
+<p style="margin-bottom: 1.5rem; line-height: 1.8; color: #666;">Önce şunun farkına varmalıyız, her şeyi kontrol edemeyiz. Bir yerden sonrası artık sizin elinizde değildir ve müdahale edemezsiniz. Çok fazla düşündüğünüzde o sorunun çözülmeyeğini ve bunun sadece size zarar vereceğinin bilincine varmamız gerekli. Hiçbir şey düşünmemek, hiçbir şeyi kafaya takmamak elbette mümkün değil. Bütün olumsuz düşüncelerden hemen kurtulmalısınız desem bu hiç gerçekçi olmaz. Ama aşırı düşünmenin olumsuz etkilerini azaltmak mümkündür.</p>
+<p style="margin-bottom: 1.5rem; line-height: 1.8; color: #666;">En önemli olan şey; zihnimizdeki her düşüncenin gerçek olmadığını hatırlamaktır. Bazen aklımıza gelen senaryolar yalnızca bir ihtimaldir ve gerçekleşeceklerinin garantisi yoktur. Hatta birçok araştırma gösteriyor ki aslında düşündüğünüz birçok ihtimal gerçekleşmiyor. Bir çalışmada, katılımcıların endişelerinin yaklaşık %91'inin hiç gerçekleşmediği bulunmuştur. Başka bir deyişle, zihnimizin bize çizdiği korkutucu senaryoların büyük bölümü yalnızca bir ihtimal olarak kalmaktadır.</p>
+<p style="margin-bottom: 1.5rem; line-height: 1.8; color: #666;">Bunun yanında dikkati sürekli düşüncelere vermek yerine günlük yaşamın içine dönmeye çalışmak faydalı olabilir. Yürüyüş yapmak, sporla ilgilenmek, bir hobi edinmek veya sevdiklerinizle vakit geçirmek zihnin aynı döngü içinde kalmasını zorlaştırabilir.</p>
+<p style="margin-bottom: 1.5rem; line-height: 1.8; color: #666;">Bazı durumlarda ise düşünceleri zihinde tutmak yerine bir kağıda yazmak da rahatlatıcı olabilir. Yazıya dökülen düşünceler çoğu zaman zihnimizde göründükleri kadar karmaşık olmayabilir. Bu yazdıklarınız sayesinde hem düşüncelerinizle yüzleşebilir, hem de onların kafanızda büyüttüğünüz kadar önemli ve gerçekçi olmadığının bilincine varabilirsiniz.</p>
+
+<h3 style="font-size: 1.3rem; margin: 2rem 0 1rem; font-weight: 500;">Ne Zaman Destek Alınmalıdır?</h3>
+<p style="margin-bottom: 1.5rem; line-height: 1.8; color: #666;">Günlük hayatınızın ilerleyişini bozan durumlar risklidir. Eğer aşırı düşünme günlük yaşamınızı etkiliyor, derslerinize veya işinize odaklanmanızı zorlaştırıyor, uyku düzeninizi bozuyor ya da yoğun kaygıya neden oluyorsa profesyonel destek almak faydalı olabilir.</p>
+<p style="margin-bottom: 1.5rem; line-height: 1.8; color: #666;">Olaylar yorumlama biçimlerimize bağlıdır ve yanlış düşünce kalıpları yanlış yorumlamalara sebep olur. Bu yanlış düşünce kalıpları psikolojik olarak insanı olumsuz etkilemekte. Psikolojik destek, kişinin düşünce kalıplarını fark etmesine ve bu döngüyle daha sağlıklı şekilde başa çıkmasına yardımcı olabilir.</p>
+
+<h3 style="font-size: 1.3rem; margin: 2rem 0 1rem; font-weight: 500;">Sonuç</h3>
+<p style="margin-bottom: 1.5rem; line-height: 1.8; color: #666;">Zihnimiz zaman zaman bizi korumaya çalışırken gereğinden fazla düşünmemize neden olabilir. Ancak her düşünceye aynı önemi vermek zorunda değiliz. Bazen çözüm, daha fazla düşünmekte değil; düşüncelerin gelip geçmesine izin verebilmektedir. Unutmayın, zihnin hiç susmaması normal olabilir fakat hayatın kontrolünü tamamen düşüncelere bırakmak zorunda değiliz. Düşüncelerin esiri değilsiniz, akış içerisinde her şey daha sağlıklı ve güzel olacaktır.</p>
+
+<p style="margin-top: 2rem; font-weight: 500; color: #1a1a1a; text-align: right;">Belkıs ALTINDAĞ</p>
+`
+}
+};
+
+function openArticle(articleId) {
+const article = articles[articleId];
+const modal = document.getElementById('articleModal');
+const content = document.getElementById('articleContent');
+
+content.innerHTML = `
+<span style="display: inline-block; color: #666; font-size: 0.8rem; margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.5px;">${article.category}</span>
+<h1 style="font-size: 2rem; margin-bottom: 0.5rem; font-weight: 500; letter-spacing: -0.5px; line-height: 1.3;">${article.title}</h1>
+<p style="color: #999; font-size: 0.9rem; margin-bottom: 2rem;">${article.date}</p>
+${article.content}
+`;
+
+modal.style.display = 'block';
+modal.scrollTop = 0;
+document.body.style.overflow = 'hidden';
+}
+
+function closeArticle() {
+document.getElementById('articleModal').style.display = 'none';
+document.body.style.overflow = 'auto';
+}
+
+document.addEventListener('keydown', function(e) {
+if (e.key === 'Escape') {
+closeArticle();
+}
+});
+
+document.getElementById('articleModal').addEventListener('click', function(e) {
+if (e.target === this) {
+closeArticle();
+}
+});
+
+const closeBtn = document.querySelector('#articleModal button');
+closeBtn.addEventListener('mouseenter', function() {
+this.style.background = '#ff6b9d';
+this.style.color = 'white';
+this.style.transform = 'rotate(90deg) scale(1.1)';
+});
+
+closeBtn.addEventListener('mouseleave', function() {
+this.style.background = 'white';
+this.style.color = '#ff6b9d';
+this.style.transform = 'rotate(0deg) scale(1)';
+});
+</script>
 </body>
 </html>
